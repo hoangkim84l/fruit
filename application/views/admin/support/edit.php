@@ -5,7 +5,7 @@
 <div class="wrapper">
 
    	<!-- Form -->
-	<form class="form" id="form" action="<?php echo $action; ?>" method="post">
+	<form class="form" enctype="multipart/form-data" id="form" action="<?php echo $action; ?>" method="post">
 		<fieldset>
 			<div class="widget">
 				<div class="title">
@@ -34,11 +34,10 @@
 				</div>
 				
 				<div class="formRow">
-					<label class="formLeft" for="param_yahoo"><?php echo lang('yahoo'); ?>:</label>
+					<label class="formLeft" for="param_hotline">Hotline:</label>
 					<div class="formRight">
-						<span class="oneTwo"><input name="yahoo" id="param_yahoo" value='<?php echo $info->yahoo?>'  type="text" /></span>
+						<span class="oneTwo"><input name="hotline" id="param_hotline" value='<?php echo $info->hotline?>'  type="text" /></span>
 						<span name="yahoo_autocheck" class="autocheck"></span>
-						<div name="yahoo_error" class="clear error"></div>
 					</div>
 					<div class="clear"></div>
 				</div>
@@ -52,13 +51,64 @@
 					</div>
 					<div class="clear"></div>
 				</div>
-				
 				<div class="formRow">
 					<label class="formLeft" for="param_skype"><?php echo lang('skype'); ?>:</label>
 					<div class="formRight">
-						<span class="oneTwo"><input name="skype" id="param_skype" value='<?php echo $info->skype?>'  type="text" /></span>
+						<span class="oneTwo"><input name="skype" id="param_skype" value="<?php echo $info->skype?>" type="text"/></span>
 						<span name="skype_autocheck" class="autocheck"></span>
-						<div name="skype_error" class="clear error"></div>
+						<div name="skype_error" class="clear error"><?php echo form_error('skype')?></div>
+					</div>
+					<div class="clear"></div>
+				</div>
+				
+				<div class="formRow">
+					<label class="formLeft" for="param_site_title">Tiều đề trang web:</label>
+					<div class="formRight">
+						<span class="oneTwo"><input name="site_title" id="param_site_title" value="<?php echo $info->site_title?>" type="text"/></span>
+						<span name="skype_autocheck" class="autocheck"></span>
+					</div>
+					<div class="clear"></div>
+				</div>
+				<div class="formRow">
+					<label class="formLeft" for="param_site_key">Từ khóa:</label>
+					<div class="formRight">
+						<span class="oneTwo"><input name="site_key" id="param_site_key" value="<?php echo $info->site_key?>" type="text"/></span>
+						<span name="skype_autocheck" class="autocheck"></span>
+					</div>
+					<div class="clear"></div>
+				</div>
+				<div class="formRow">
+					<label class="formLeft" for="param_site_desc">Mô tả trang:</label>
+					<div class="formRight">
+						<span class="oneTwo"><input name="site_desc" id="param_site_desc" value="<?php echo $info->site_desc?>" type="text"/></span>
+						<span name="skype_autocheck" class="autocheck"></span>
+					</div>
+					<div class="clear"></div>
+				</div>
+				<div class="formRow">
+					<label class="formLeft">Logo:</label>
+					<div class="formRight">
+						<div class="left">
+							<input type="file" name="image" id="image" size="25">
+							<img src="<?php echo base_url('upload/logo/'.$info->logo)?>" style="width:100px;height:70px">
+						</div>
+					</div>
+					<div class="clear"></div>
+				</div>
+				<div class="formRow">
+					<label for="param_site_title" class="formLeft">Chat zalo:</label>
+					<div class="formRight">
+						<span class="oneTwo"><textarea style="height:300px;" cols="" rows="4" _autocheck="true" id="param_zalo" name="zalo"><?php echo $info->zalo?></textarea></span>
+						<span class="autocheck" name="site_title_autocheck"></span>
+					</div>
+					<div class="clear"></div>
+				</div>
+				<div class="formRow">
+					<label for="param_site_title" class="formLeft">Chat facebook:</label>
+					<div class="formRight">
+						<span class="oneTwo"><textarea style="height:300px;" cols="" rows="4" _autocheck="true" id="param_facebook" name="facebook"><?php echo $info->facebook?></textarea></span>
+						<span class="autocheck" name="site_title_autocheck"></span>
+						<div class="clear error" name="site_title_error"></div>
 					</div>
 					<div class="clear"></div>
 				</div>

@@ -86,6 +86,11 @@ Class Product extends MY_Controller
      */
     function add()
     {
+		$config = array(
+            'field' => 'slug',
+            'name'  => 'name',
+            'table' => 'product',
+        );
         //lay danh sach danh muc san pham
         $this->load->model('catalog_model');
         $input = array();
@@ -102,6 +107,7 @@ Class Product extends MY_Controller
         //load thư viện validate dữ liệu
         $this->load->library('form_validation');
         $this->load->helper('form');
+		$this->load->library('slug_library',$config);
         
         //neu ma co du lieu post len thi kiem tra
         if($this->input->post())
@@ -146,14 +152,13 @@ Class Product extends MY_Controller
                     'image_link' => $image_link,
                     'image_list' => $image_list,
                     'discount'   => $discount,
-                    'warranty'   => $this->input->post('warranty'),
-                    'gifts'      => $this->input->post('gifts'),
                     'site_title' => $this->input->post('site_title'),
                     'meta_desc'  => $this->input->post('meta_desc'),
                     'meta_key'   => $this->input->post('meta_key'),
                     'content'    => $this->input->post('content'),
                     'created'    => now(),
                 ); 
+				$data['slug'] = $this->slug_library->create_uri($name);
                 //them moi vao csdl
                 if($this->product_model->create($data))
                 {
@@ -178,6 +183,11 @@ Class Product extends MY_Controller
      */
     function edit()
     {
+		$config = array(
+            'field' => 'slug',
+            'name'  => 'name',
+            'table' => 'product',
+        );
         $id = $this->uri->rsegment('3');
         $product = $this->product_model->get_info($id);
         if(!$product)
@@ -204,6 +214,7 @@ Class Product extends MY_Controller
         //load thư viện validate dữ liệu
         $this->load->library('form_validation');
         $this->load->helper('form');
+		$this->load->library('slug_library',$config);
         
         //neu ma co du lieu post len thi kiem tra
         if($this->input->post())
@@ -245,8 +256,6 @@ Class Product extends MY_Controller
                     'catalog_id' => $catalog_id,
                     'price'      => $price,
                     'discount'   => $discount,
-                    'warranty'   => $this->input->post('warranty'),
-                    'gifts'      => $this->input->post('gifts'),
                     'site_title' => $this->input->post('site_title'),
                     'meta_desc'  => $this->input->post('meta_desc'),
                     'meta_key'   => $this->input->post('meta_key'),
@@ -261,7 +270,7 @@ Class Product extends MY_Controller
                 {
                     $data['image_list'] = $image_list_json;
                 }
-                
+                $data['slug'] = $this->slug_library->create_uri($name);
                 //them moi vao csdl
                 if($this->product_model->update($product->id, $data))
                 {

@@ -20,7 +20,7 @@
 				    
 					<td class="sortCol"><?php echo lang('name'); ?></td>
 					<td class="sortCol"><?php echo lang('phone'); ?></td>
-					<td class="sortCol"><?php echo lang('yahoo'); ?></td>
+					<td class="sortCol">Hotline</td>
 					<td class="sortCol"><?php echo lang('email'); ?></td>
 					<td class="sortCol"><?php echo lang('skype'); ?></td>
 					
@@ -38,7 +38,7 @@
 					
 					<td><?php echo $row->phone; ?></td>
 					
-					<td><?php echo $row->yahoo; ?></td>
+					<td><?php echo $row->hotline; ?></td>
 					
 					<td><?php echo $row->gmail; ?></td>
 					
@@ -48,10 +48,6 @@
 						
 						<a href="<?php echo admin_url('support/edit/'.$row->id)?>" title="<?php echo lang('edit'); ?>" class="tipS">
 							<img src="<?php echo public_url('admin') ?>/images/icons/color/edit.png" />
-						</a>
-						
-						<a href="<?php echo admin_url('support/del/'.$row->id)?>" title="<?php echo lang('delete'); ?>" class="tipS verify_action" >
-								<img src="<?php echo public_url('admin') ?>/images/icons/color/delete.png" />
 						</a>
 						
 					</td>

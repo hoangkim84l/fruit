@@ -120,10 +120,7 @@
 					<td class="textC"><?php echo get_date($row->created)?></td>
 					
 					<td class="option textC">
-						<a title="Xem chi tiết sản phẩm" class="tipS" target="_blank" href="<?php echo base_url('product/view/'.$row->id)?>">
-								<img src="<?php echo public_url('admin/images')?>/icons/color/view.png">
-						 </a>
-						 
+						
 						 <a class="tipS" title="Chỉnh sửa" href="<?php echo admin_url('product/edit/'.$row->id)?>">
 							<img src="<?php echo public_url('admin/images')?>/icons/color/edit.png">
 						</a>

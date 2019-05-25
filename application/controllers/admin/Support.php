@@ -97,14 +97,36 @@ class Support extends MY_Controller {
         
         if($this->form_validation->run())
         {
+			
+			//lay ten file anh minh hoa duoc update len
+			$this->load->library('upload_library');
+			$upload_path = './upload/logo';
+			$upload_data = $this->upload_library->upload($upload_path, 'image');
+			$image_link = '';
+			if(isset($upload_data['file_name']))
+			{
+				$image_link = $upload_data['file_name'];
+			}
+			
             //lay du lieu ma admin nhap vao form
             $data = array();
             $data['name']       = $this->input->post('name');//ten hỗ trợ
             $data['phone']      = $this->input->post('phone');
-            $data['yahoo']      = $this->input->post('yahoo');
+            $data['hotline']    = $this->input->post('hotline');
             $data['gmail']      = $this->input->post('gmail');
-            $data['skype']      = $this->input->post('skype'); 
+            $data['skype']      = $this->input->post('skype');
+			$data['site_title']      = $this->input->post('site_title');
+			$data['site_key']      = $this->input->post('site_key');
+			$data['site_desc']      = $this->input->post('site_desc');
+			$data['zalo']      = $this->input->post('zalo');
+			$data['facebook']      = $this->input->post('facebook');			
             $data['sort_order'] = $this->input->post('sort_order');//vi tri sắp xếp
+			
+			if($image_link != '')
+			{
+				$data['logo'] = $image_link;
+			}
+				
             if($this->support_model->update($id, $data))
             {
                 //gui thong bao thanh cong

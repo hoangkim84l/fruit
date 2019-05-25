@@ -8,10 +8,6 @@
 		
 		<div class="horControlB menu_action">
 			<ul>
-				<li><a href="<?php echo admin_url('support/add'); ?>">
-					<img src="<?php echo public_url('admin'); ?>/images/icons/control/16/add.png" />
-					<span><?php echo lang('add'); ?></span>
-				</a></li>
 				
 				<li><a href="<?php echo admin_url('support'); ?>">
 					<img src="<?php echo public_url('admin'); ?>/images/icons/control/16/list.png" />
