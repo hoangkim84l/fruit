@@ -24,14 +24,14 @@
 </div>
 
 <script type="text/javascript">
-(function($)
-{
-	$(document).ready(function()
+	(function($)
 	{
-		var main = $('#form');
-		
+		$(document).ready(function()
+		{
+			var main = $('#form');
+			
 		// Tabs
 		main.contentTabs();
 	});
-})(jQuery);
+	})(jQuery);
 </script>

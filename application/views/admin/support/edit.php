@@ -96,7 +96,9 @@
 					<div class="clear"></div>
 				</div>
 				<div class="formRow">
-					<label for="param_site_title" class="formLeft">Chat zalo:</label>
+					<label for="param_site_title" class="formLeft">Chat zalo:<br/>
+						<a href="https://drive.google.com/file/d/1750MozMFzqtHkg0zkP5KG6ECo308mx66/view?usp=sharing" target="_blank" style="color:red;">Tài liệu hướng dẩn Chat Zalo</a>
+					</label>
 					<div class="formRight">
 						<span class="oneTwo"><textarea style="height:300px;" cols="" rows="4" _autocheck="true" id="param_zalo" name="zalo"><?php echo $info->zalo?></textarea></span>
 						<span class="autocheck" name="site_title_autocheck"></span>
@@ -104,7 +106,9 @@
 					<div class="clear"></div>
 				</div>
 				<div class="formRow">
-					<label for="param_site_title" class="formLeft">Chat facebook:</label>
+					<label for="param_site_title" class="formLeft">Chat facebook:<br/>
+						<a href="https://drive.google.com/file/d/18YjdJhPfVprbr3xtcV3cWbxqMNTm22fj/view?usp=sharing" target="_blank" style="color:red;">Tài liệu hướng dẩn Chat Facebook</a>
+					</label>
 					<div class="formRight">
 						<span class="oneTwo"><textarea style="height:300px;" cols="" rows="4" _autocheck="true" id="param_facebook" name="facebook"><?php echo $info->facebook?></textarea></span>
 						<span class="autocheck" name="site_title_autocheck"></span>
@@ -114,9 +118,9 @@
 				</div>
 				
 				<div class="formRow">
-					<label class="formLeft" for="param_sort_order"><?php echo lang('sort_order'); ?>:</label>
+					<label class="formLeft" for="param_sort_order"><!-- <?php echo lang('sort_order'); ?> --></label>
 					<div class="formRight">
-						<input name="sort_order" id="param_sort_order"  class="left" value='<?php echo $info->sort_order?>'  style="width:100px;" type="text" />
+						<input name="sort_order" id="param_sort_order"  class="left" value='<?php echo $info->sort_order?>'  style="width:100px;" type="hidden" />
 						<span name="sort_order_autocheck" class="autocheck"></span>
 						<div name="sort_order_error" class="clear error"></div>
 					</div>

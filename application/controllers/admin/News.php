@@ -150,7 +150,7 @@ Class News extends MY_Controller
         //load thư viện validate dữ liệu
         $this->load->library('form_validation');
         $this->load->helper('form');
-        
+        $this->load->library('slug_library',$config);
         //neu ma co du lieu post len thi kiem tra
         if($this->input->post())
         {

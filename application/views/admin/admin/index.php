@@ -5,14 +5,14 @@
 
 <div class="wrapper">
 
-    <?php $this->load->view('admin/message', $this->data);?>
-    
-	<div class="widget">
+	<?php $this->load->view('admin/message', $this->data);?>
 	
+	<div class="widget">
+		
 		<div class="title">
 			
 			<h6>Danh sách admin</h6>
-		 	<div class="num f12">Tổng số: <b><?php echo $total?></b></div>
+			<div class="num f12">Tổng số: <b><?php echo $total?></b></div>
 		</div>
 		
 		<table cellpadding="0" cellspacing="0" width="100%" class="sTable mTable myTable withCheck" id="checkAll">
@@ -27,35 +27,35 @@
 			</thead>
 			
 			<tbody>
-			<?php foreach ($list as $row):?>
-			<tr>
+				<?php foreach ($list as $row):?>
+					<tr>
 						
 						<td class="textC"><?php echo $row->id?></td>
 
 						<td>
-						<span title="<?php echo $row->name?>" class="tipS">
-							<?php echo $row->name?>				
-						</span></td>
-						
-						<td><span title="<?php echo $row->username?>" class="tipS">
-							<?php echo $row->username?>					
-						</span></td>
-						
-						
-						<td class="option">
-							<a href="<?php echo admin_url('admin/edit/'.$row->id)?>" title="Chỉnh sửa" class="tipS ">
-							   <img src="<?php echo public_url('admin')?>/images/icons/color/edit.png" />
-							</a>
+							<span title="<?php echo $row->name?>" class="tipS">
+								<?php echo $row->name?>				
+							</span></td>
 							
-							<a href="<?php echo admin_url('admin/delete/'.$row->id)?>" title="Xóa" class="tipS verify_action" >
-							    <img src="<?php echo public_url('admin')?>/images/icons/color/delete.png" />
-							</a>
-						</td>
-					</tr>
+							<td><span title="<?php echo $row->username?>" class="tipS">
+								<?php echo $row->username?>					
+							</span></td>
+							
+							
+							<td class="option">
+								<a href="<?php echo admin_url('admin/edit/'.$row->id)?>" title="Chỉnh sửa" class="tipS ">
+									<img src="<?php echo public_url('admin')?>/images/icons/color/edit.png" />
+								</a>
+								
+								<a href="<?php echo admin_url('admin/delete/'.$row->id)?>" title="Xóa" class="tipS verify_action" >
+									<img src="<?php echo public_url('admin')?>/images/icons/color/delete.png" />
+								</a>
+							</td>
+						</tr>
 					<?php endforeach;?>
-					</tbody>
-				</table>
+				</tbody>
+			</table>
+		</div>
 	</div>
-</div>
 
-<div class="clear mt30"></div>
+	<div class="clear mt30"></div>

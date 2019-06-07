@@ -4,7 +4,7 @@
 
     <div class="sideProfile">
         <a href="#" title="" class="profileFace"><img src="<?php echo public_url('admin')?>/images/user.png" width="40"></a>
-		<span>.</span>
+        <span>.</span>
         <span>Xin chào: <strong>admin!</strong></span>
         <div class="clear"></div>
     </div>
@@ -12,9 +12,7 @@
     <!-- Left navigation -->
 
     <ul id="menu" class="nav">
-
         <li class="home">
-
             <a href="<?php echo admin_url()?>" class="active" id="current">
                 <span>Bảng điều khiển</span>
                 <strong></strong>
@@ -31,14 +29,13 @@
             <ul style="display: none;" class="sub">
                 <li>
                     <a href="<?php echo admin_url('transaction')?>">
-								Giao dịch							</a>
+                    Giao dịch</a>
                 </li>
                 <li>
                     <a href="<?php echo admin_url('order')?>">
-								Đơn hàng sản phẩm							</a>
+                    Đơn hàng sản phẩm</a>
                 </li>
             </ul>
-
         </li>
         <li class="product">
 
@@ -49,17 +46,15 @@
             <ul style="display: none;" class="sub">
                 <li>
                     <a href="<?php echo admin_url('product')?>">
-								Sản phẩm							
-							</a>
+                        Sản phẩm							
+                    </a>
                 </li>
                 <li>
                     <a href="<?php echo admin_url('catalog')?>">
-								Danh mục							
-							</a>
+                        Danh mục							
+                    </a>
                 </li>
-
             </ul>
-
         </li>
         <li class="account">
 
@@ -71,13 +66,13 @@
             <ul style="display: none;" class="sub">
                 <li>
                     <a href="<?php echo admin_url('admin')?>">
-								Ban quản trị							
-							</a>
+                        Ban quản trị							
+                    </a>
                 </li>
 
                 <li>
                     <a href="<?php echo admin_url('user')?>">
-								Thành viên							</a>
+                    Thành viên</a>
                 </li>
             </ul>
 
@@ -86,17 +81,21 @@
 
             <a href="" class="exp inactive">
                 <span>Hỗ trợ và liên hệ</span>
-                <strong>2</strong>
+                <strong>3</strong>
             </a>
 
             <ul style="display: none;" class="sub">
                 <li>
                     <a href="<?php echo admin_url('support')?>">
-								Hỗ trợ							</a>
+                    Hỗ trợ</a>
+                </li>
+                <li>
+                    <a href="<?php echo admin_url('storeaddress')?>">
+                    Chi nhánh</a>
                 </li>
                 <li>
                     <a href="<?php echo admin_url('contact')?>">
-								Liên hệ							</a>
+                    Liên hệ</a>
                 </li>
             </ul>
 
@@ -105,27 +104,37 @@
 
             <a href="" class="exp inactive">
                 <span>Nội dung</span>
-                <strong>2</strong>
+                <strong>5</strong>
             </a>
 
             <ul style="display: none;" class="sub">
                 <li>
                     <a href="<?php echo admin_url('slide')?>">
-								Slide
-								</a>
+                        Slide
+                    </a>
                 </li>
-
+                <li>
+                    <a href="<?php echo admin_url('info')?>">
+                        Giới thiệu & Hướng dẫn mua hàng
+                    </a>
+                </li>
                 <li>
                     <a href="<?php echo admin_url('news')?>">
-								Tin tức	
-								</a>
+                        Tin tức	
+                    </a>
                 </li>
-
+                <li>
+                    <a href="<?php echo admin_url('banner')?>">
+                        Banner  
+                    </a>
+                </li>
+                <li>
+                    <a href="<?php echo admin_url('connecter')?>">
+                        Liên kết (chủ vựa khác)  
+                    </a>
+                </li>
             </ul>
-
         </li>
-
     </ul>
-
 </div>
 <div class="clear"></div>

@@ -4,7 +4,7 @@
 <!-- Main content wrapper -->
 <div class="wrapper">
 
-   	<!-- Form -->
+	<!-- Form -->
 	<form class="form" id="form" action="<?php echo $action; ?>" method="post">
 		<fieldset>
 			<div class="widget">
@@ -125,12 +125,12 @@
 					<div class="clear"></div>
 				</div>
 				
-           		<div class="formSubmit">
-           			<input type="submit" value="<?php echo lang('button_add'); ?>" class="redB" />
-           			<input type="reset" value="<?php echo lang('button_reset'); ?>" class="basic" />
-           		</div>
-        		<div class="clear"></div>
-        		
+				<div class="formSubmit">
+					<input type="submit" value="<?php echo lang('button_add'); ?>" class="redB" />
+					<input type="reset" value="<?php echo lang('button_reset'); ?>" class="basic" />
+				</div>
+				<div class="clear"></div>
+				
 			</div>
 		</fieldset>
 	</form>
