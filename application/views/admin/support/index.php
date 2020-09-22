@@ -10,7 +10,7 @@
 	
 		<div class="title">
 			<img src="<?php echo public_url('admin'); ?>/images/icons/dark/frames.png" class="titleIcon" />
-			<h6><?php echo lang('list'); ?> <?php echo lang('mod_support'); ?></h6>
+			<h6><?php echo lang('mod_support'); ?></h6>
 		</div>
 		
 		<table cellpadding="0" cellspacing="0" width="100%" class="sTable myTable">

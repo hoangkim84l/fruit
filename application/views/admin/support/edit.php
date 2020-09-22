@@ -60,28 +60,113 @@
 					</div>
 					<div class="clear"></div>
 				</div>
+				<div class="formRow">
+					<label class="formLeft" for="param_fanpage_fb">Fanpage Facebook:</label>
+					<div class="formRight">
+						<span class="oneTwo"><input name="fanpage_fb" id="param_fanpage_fb" value="<?php echo $info->fanpage_fb?>" type="text"/></span>
+						<span name="fanpage_fb_autocheck" class="autocheck"></span>
+						<div name="fanpage_fb_error" class="clear error"><?php echo form_error('fanpage_fb')?></div>
+					</div>
+					<div class="clear"></div>
+				</div>
+				<div class="formRow">
+					<label class="formLeft" for="param_fanpage_twitter">Fanpage Twitter:</label>
+					<div class="formRight">
+						<span class="oneTwo"><input name="fanpage_twitter" id="param_fanpage_twitter" value="<?php echo $info->fanpage_twitter?>" type="text"/></span>
+						<span name="fanpage_twitter_autocheck" class="autocheck"></span>
+						<div name="fanpage_twitter_error" class="clear error"><?php echo form_error('fanpage_twitter')?></div>
+					</div>
+					<div class="clear"></div>
+				</div>
+				<div class="formRow">
+					<label class="formLeft" for="param_fanpage_linkedin">Fanpage Linkedin:</label>
+					<div class="formRight">
+						<span class="oneTwo"><input name="fanpage_linkedin" id="param_fanpage_linkedin" value="<?php echo $info->fanpage_linkedin?>" type="text"/></span>
+						<span name="fanpage_linkedin_autocheck" class="autocheck"></span>
+						<div name="fanpage_linkedin_error" class="clear error"><?php echo form_error('fanpage_linkedin')?></div>
+					</div>
+					<div class="clear"></div>
+				</div>
 				
 				<div class="formRow">
-					<label class="formLeft" for="param_site_title">Tiều đề trang web:</label>
+					<label class="formLeft" for="param_site_title">Seo Title</label>
 					<div class="formRight">
 						<span class="oneTwo"><input name="site_title" id="param_site_title" value="<?php echo $info->site_title?>" type="text"/></span>
-						<span name="skype_autocheck" class="autocheck"></span>
+						<span name="site_title" class="autocheck"></span>
 					</div>
 					<div class="clear"></div>
 				</div>
 				<div class="formRow">
-					<label class="formLeft" for="param_site_key">Từ khóa:</label>
+					<label class="formLeft" for="param_site_key">Seo Key</label>
 					<div class="formRight">
 						<span class="oneTwo"><input name="site_key" id="param_site_key" value="<?php echo $info->site_key?>" type="text"/></span>
-						<span name="skype_autocheck" class="autocheck"></span>
+						<span name="site_key" class="autocheck"></span>
 					</div>
 					<div class="clear"></div>
 				</div>
 				<div class="formRow">
-					<label class="formLeft" for="param_site_desc">Mô tả trang:</label>
+					<label class="formLeft" for="param_site_desc">Seo Description</label>
 					<div class="formRight">
 						<span class="oneTwo"><input name="site_desc" id="param_site_desc" value="<?php echo $info->site_desc?>" type="text"/></span>
-						<span name="skype_autocheck" class="autocheck"></span>
+						<span name="site_desc" class="autocheck"></span>
+					</div>
+					<div class="clear"></div>
+				</div>
+				<div class="formRow">
+					<label class="formLeft" for="param_robots">Seo Robots</label>
+					<div class="formRight">
+						<span class="oneTwo"><input name="robots" id="param_robots" value="<?php echo $info->robots?>" type="text"/></span>
+						<span name="robots" class="autocheck"></span>
+					</div>
+					<div class="clear"></div>
+				</div>
+				<div class="formRow">
+					<label class="formLeft" for="param_author">Seo Author</label>
+					<div class="formRight">
+						<span class="oneTwo"><input name="author" id="param_author" value="<?php echo $info->author?>" type="text"/></span>
+						<span name="author" class="autocheck"></span>
+					</div>
+					<div class="clear"></div>
+				</div>
+				<div class="formRow">
+					<label class="formLeft" for="param_copyright">Seo Copyright</label>
+					<div class="formRight">
+						<span class="oneTwo"><input name="copyright" id="param_copyright" value="<?php echo $info->copyright?>" type="text"/></span>
+						<span name="copyright" class="autocheck"></span>
+					</div>
+					<div class="clear"></div>
+				</div>
+				<div class="formRow">
+					<label class="formLeft" for="param_geo_region">Seo Geo Region</label>
+					<div class="formRight">
+						<span class="oneTwo"><input name="geo_region" id="param_geo_region" value="<?php echo $info->geo_region?>" type="text"/></span>
+						<span name="geo_region" class="autocheck"></span>
+					</div>
+					<div class="clear"></div>
+				</div>
+				<div class="formRow">
+					<label class="formLeft" for="param_geo_placenamen">Seo Geo Placename</label>
+					<div class="formRight">
+						<span class="oneTwo"><input name="geo_placename" id="param_geo_placename" value="<?php echo $info->geo_placename?>" type="text"/></span>
+						<span name="geo_placename" class="autocheck"></span>
+					</div>
+					<div class="clear"></div>
+				</div>
+				<div class="formRow">
+					<label class="formLeft">Og Image:</label>
+					<div class="formRight">
+						<div class="left">
+							<input type="file" name="og_image" id="og_image" size="25">
+							<img src="<?php echo base_url('upload/logo/'.$info->og_image)?>" style="width:100px;height:70px">
+						</div>
+					</div>
+					<div class="clear"></div>
+				</div>
+				<div class="formRow">
+					<label class="formLeft" for="param_og_type">Og Type</label>
+					<div class="formRight">
+						<span class="oneTwo"><input name="og_type" id="param_og_type" value="<?php echo $info->og_type?>" type="text"/></span>
+						<span name="og_type" class="autocheck"></span>
 					</div>
 					<div class="clear"></div>
 				</div>
@@ -92,6 +177,24 @@
 							<input type="file" name="image" id="image" size="25">
 							<img src="<?php echo base_url('upload/logo/'.$info->logo)?>" style="width:100px;height:70px">
 						</div>
+					</div>
+					<div class="clear"></div>
+				</div>
+				<div class="formRow">
+					<label class="formLeft">Favicon:</label>
+					<div class="formRight">
+						<div class="left">
+							<input type="file" name="favicon" id="favicon" size="25">
+							<img src="<?php echo base_url('upload/logo/'.$info->favicon)?>" style="width:100px;height:70px">
+						</div>
+					</div>
+					<div class="clear"></div>
+				</div>
+				<div class="formRow">
+					<label for="param_slogan" class="formLeft">Slogan: </label>
+					<div class="formRight">
+						<span class="oneTwo"><textarea style="height:300px;" cols="" rows="4" _autocheck="true" id="slogan" name="slogan"><?php echo $info->slogan?></textarea></span>
+						<span class="autocheck" name="slogan_autocheck"></span>
 					</div>
 					<div class="clear"></div>
 				</div>

@@ -2,7 +2,7 @@
 <div class="titleArea">
 	<div class="wrapper">
 		<div class="pageTitle">
-			<h5><?php echo lang('mod_support'); ?></h5>
+			<h5><?php echo lang('mod_support_tag'); ?></h5>
 			<span><?php echo lang('support_info'); ?></span>
 		</div>
 		

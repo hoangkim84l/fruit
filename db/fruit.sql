@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 4.8.3
+-- version 4.9.2
 -- https://www.phpmyadmin.net/
 --
--- Máy chủ: 127.0.0.1
--- Thời gian đã tạo: Th6 07, 2019 lúc 08:24 AM
--- Phiên bản máy phục vụ: 10.1.37-MariaDB
--- Phiên bản PHP: 7.2.12
+-- Host: 127.0.0.1
+-- Generation Time: Sep 22, 2020 at 04:48 AM
+-- Server version: 10.4.11-MariaDB
+-- PHP Version: 7.2.26
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET AUTOCOMMIT = 0;
@@ -19,13 +19,13 @@ SET time_zone = "+00:00";
 /*!40101 SET NAMES utf8mb4 */;
 
 --
--- Cơ sở dữ liệu: `fruit`
+-- Database: `fruit`
 --
 
 -- --------------------------------------------------------
 
 --
--- Cấu trúc bảng cho bảng `admin`
+-- Table structure for table `admin`
 --
 
 CREATE TABLE `admin` (
@@ -37,7 +37,7 @@ CREATE TABLE `admin` (
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
 
 --
--- Đang đổ dữ liệu cho bảng `admin`
+-- Dumping data for table `admin`
 --
 
 INSERT INTO `admin` (`id`, `username`, `password`, `name`, `admin_group_id`) VALUES
@@ -48,18 +48,18 @@ INSERT INTO `admin` (`id`, `username`, `password`, `name`, `admin_group_id`) VAL
 -- --------------------------------------------------------
 
 --
--- Cấu trúc bảng cho bảng `admin_group`
+-- Table structure for table `admin_group`
 --
 
 CREATE TABLE `admin_group` (
   `id` int(11) NOT NULL,
   `name` varchar(128) COLLATE utf8_bin NOT NULL,
-  `sort_order` tinyint(4) NOT NULL DEFAULT '0',
+  `sort_order` tinyint(4) NOT NULL DEFAULT 0,
   `permissions` text COLLATE utf8_bin NOT NULL
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
 
 --
--- Đang đổ dữ liệu cho bảng `admin_group`
+-- Dumping data for table `admin_group`
 --
 
 INSERT INTO `admin_group` (`id`, `name`, `sort_order`, `permissions`) VALUES
@@ -69,7 +69,7 @@ INSERT INTO `admin_group` (`id`, `name`, `sort_order`, `permissions`) VALUES
 -- --------------------------------------------------------
 
 --
--- Cấu trúc bảng cho bảng `banner`
+-- Table structure for table `banner`
 --
 
 CREATE TABLE `banner` (
@@ -80,7 +80,7 @@ CREATE TABLE `banner` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 --
--- Đang đổ dữ liệu cho bảng `banner`
+-- Dumping data for table `banner`
 --
 
 INSERT INTO `banner` (`id`, `title`, `image_link`, `created`) VALUES
@@ -89,48 +89,49 @@ INSERT INTO `banner` (`id`, `title`, `image_link`, `created`) VALUES
 -- --------------------------------------------------------
 
 --
--- Cấu trúc bảng cho bảng `catalog`
+-- Table structure for table `catalog`
 --
 
 CREATE TABLE `catalog` (
   `id` int(11) NOT NULL,
   `name` varchar(128) CHARACTER SET utf8 COLLATE utf8_unicode_ci NOT NULL,
   `slug` varchar(250) COLLATE utf8_bin DEFAULT NULL,
+  `image_link` varchar(200) COLLATE utf8_bin NOT NULL,
   `site_title` varchar(128) CHARACTER SET utf8 COLLATE utf8_unicode_ci NOT NULL,
   `meta_desc` varchar(255) CHARACTER SET utf8 COLLATE utf8_unicode_ci NOT NULL,
   `meta_key` varchar(255) CHARACTER SET utf8 COLLATE utf8_unicode_ci NOT NULL,
-  `parent_id` int(11) NOT NULL DEFAULT '0',
-  `sort_order` tinyint(4) NOT NULL DEFAULT '0'
+  `parent_id` int(11) NOT NULL DEFAULT 0,
+  `sort_order` tinyint(4) NOT NULL DEFAULT 0
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
 
 --
--- Đang đổ dữ liệu cho bảng `catalog`
+-- Dumping data for table `catalog`
 --
 
-INSERT INTO `catalog` (`id`, `name`, `slug`, `site_title`, `meta_desc`, `meta_key`, `parent_id`, `sort_order`) VALUES
-(1, 'Laptop', NULL, '', '', '', 0, 0),
-(2, 'Điện thoại', NULL, '', '', '', 0, 1),
-(3, 'Tivi', NULL, '', '', '', 0, 2),
-(4, ' Acer', NULL, '', '', '', 1, 0),
-(5, ' Apple', NULL, '', '', '', 1, 1),
-(6, 'Asus', NULL, '', '', '', 1, 2),
-(7, 'Dell', NULL, '', '', '', 1, 3),
-(8, 'HP', NULL, '', '', '', 1, 5),
-(9, 'Apple', NULL, '', '', '', 2, 0),
-(10, 'Asus', NULL, '', '', '', 2, 1),
-(11, 'BlackBerry', NULL, '', '', '', 2, 3),
-(12, 'HTC', NULL, '', '', '', 2, 4),
-(13, 'AKAI', NULL, '', '', '', 3, 0),
-(14, 'JVC', NULL, '', '', '', 3, 1),
-(15, 'LG', NULL, '', '', '', 3, 2),
-(16, 'Panasonic', NULL, '', '', '', 3, 3),
-(17, 'Samsung', NULL, '', '', '', 3, 5),
-(18, 'Toshiba', NULL, '', '', '', 3, 6);
+INSERT INTO `catalog` (`id`, `name`, `slug`, `image_link`, `site_title`, `meta_desc`, `meta_key`, `parent_id`, `sort_order`) VALUES
+(1, 'Laptop', NULL, '', '', '', '', 0, 0),
+(2, 'Điện thoại', NULL, '', '', '', '', 0, 1),
+(3, 'Tivi', NULL, '', '', '', '', 0, 2),
+(4, ' Acer', NULL, '', '', '', '', 1, 0),
+(5, ' Apple', NULL, '', '', '', '', 1, 1),
+(6, 'Asus', NULL, '', '', '', '', 1, 2),
+(7, 'Dell', NULL, '', '', '', '', 1, 3),
+(8, 'HP', NULL, '', '', '', '', 1, 5),
+(9, 'Apple', NULL, '', '', '', '', 2, 0),
+(10, 'Asus', NULL, '', '', '', '', 2, 1),
+(11, 'BlackBerry', NULL, '', '', '', '', 2, 3),
+(12, 'HTC', NULL, '', '', '', '', 2, 4),
+(13, 'AKAI', NULL, '', '', '', '', 3, 0),
+(14, 'JVC', NULL, '', '', '', '', 3, 1),
+(15, 'LG', NULL, '', '', '', '', 3, 2),
+(16, 'Panasonic', NULL, '', '', '', '', 3, 3),
+(17, 'Samsung', NULL, '', '', '', '', 3, 5),
+(18, 'Toshiba', NULL, '', '', '', '', 3, 6);
 
 -- --------------------------------------------------------
 
 --
--- Cấu trúc bảng cho bảng `comment`
+-- Table structure for table `comment`
 --
 
 CREATE TABLE `comment` (
@@ -144,11 +145,11 @@ CREATE TABLE `comment` (
   `content` text COLLATE utf8_unicode_ci NOT NULL,
   `created` int(11) NOT NULL,
   `count_like` int(255) NOT NULL,
-  `status` tinyint(2) NOT NULL DEFAULT '0'
+  `status` tinyint(2) NOT NULL DEFAULT 0
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 --
--- Đang đổ dữ liệu cho bảng `comment`
+-- Dumping data for table `comment`
 --
 
 INSERT INTO `comment` (`id`, `product_id`, `parent_id`, `user_name`, `user_email`, `user_id`, `user_ip`, `content`, `created`, `count_like`, `status`) VALUES
@@ -159,7 +160,7 @@ INSERT INTO `comment` (`id`, `product_id`, `parent_id`, `user_name`, `user_email
 -- --------------------------------------------------------
 
 --
--- Cấu trúc bảng cho bảng `connecter`
+-- Table structure for table `connecter`
 --
 
 CREATE TABLE `connecter` (
@@ -174,7 +175,7 @@ CREATE TABLE `connecter` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 --
--- Đang đổ dữ liệu cho bảng `connecter`
+-- Dumping data for table `connecter`
 --
 
 INSERT INTO `connecter` (`id`, `name`, `image_link`, `intro`, `phone`, `email`, `address`, `created`) VALUES
@@ -183,7 +184,7 @@ INSERT INTO `connecter` (`id`, `name`, `image_link`, `intro`, `phone`, `email`, 
 -- --------------------------------------------------------
 
 --
--- Cấu trúc bảng cho bảng `contact`
+-- Table structure for table `contact`
 --
 
 CREATE TABLE `contact` (
@@ -200,7 +201,7 @@ CREATE TABLE `contact` (
 -- --------------------------------------------------------
 
 --
--- Cấu trúc bảng cho bảng `content_static`
+-- Table structure for table `content_static`
 --
 
 CREATE TABLE `content_static` (
@@ -210,7 +211,7 @@ CREATE TABLE `content_static` (
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
 
 --
--- Đang đổ dữ liệu cho bảng `content_static`
+-- Dumping data for table `content_static`
 --
 
 INSERT INTO `content_static` (`id`, `key`, `content`) VALUES
@@ -220,7 +221,7 @@ INSERT INTO `content_static` (`id`, `key`, `content`) VALUES
 -- --------------------------------------------------------
 
 --
--- Cấu trúc bảng cho bảng `info`
+-- Table structure for table `info`
 --
 
 CREATE TABLE `info` (
@@ -229,11 +230,11 @@ CREATE TABLE `info` (
   `content` text CHARACTER SET utf8 COLLATE utf8_unicode_ci NOT NULL,
   `meta_desc` varchar(255) CHARACTER SET utf8 COLLATE utf8_unicode_ci NOT NULL,
   `meta_key` varchar(255) CHARACTER SET utf8 COLLATE utf8_unicode_ci NOT NULL,
-  `created` int(11) NOT NULL DEFAULT '0'
+  `created` int(11) NOT NULL DEFAULT 0
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
 
 --
--- Đang đổ dữ liệu cho bảng `info`
+-- Dumping data for table `info`
 --
 
 INSERT INTO `info` (`id`, `title`, `content`, `meta_desc`, `meta_key`, `created`) VALUES
@@ -243,7 +244,7 @@ INSERT INTO `info` (`id`, `title`, `content`, `meta_desc`, `meta_key`, `created`
 -- --------------------------------------------------------
 
 --
--- Cấu trúc bảng cho bảng `maker`
+-- Table structure for table `maker`
 --
 
 CREATE TABLE `maker` (
@@ -253,13 +254,13 @@ CREATE TABLE `maker` (
   `meta_desc` varchar(255) CHARACTER SET utf8 COLLATE utf8_unicode_ci NOT NULL,
   `meta_key` varchar(255) CHARACTER SET utf8 COLLATE utf8_unicode_ci NOT NULL,
   `site_title` varchar(255) CHARACTER SET utf8 COLLATE utf8_unicode_ci NOT NULL,
-  `sort_order` tinyint(4) NOT NULL DEFAULT '0'
+  `sort_order` tinyint(4) NOT NULL DEFAULT 0
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
 
 -- --------------------------------------------------------
 
 --
--- Cấu trúc bảng cho bảng `menu`
+-- Table structure for table `menu`
 --
 
 CREATE TABLE `menu` (
@@ -267,13 +268,13 @@ CREATE TABLE `menu` (
   `parent_id` int(255) NOT NULL,
   `title` varchar(128) CHARACTER SET utf8 COLLATE utf8_unicode_ci NOT NULL,
   `url` varchar(255) COLLATE utf8_bin NOT NULL,
-  `sort_order` int(11) NOT NULL DEFAULT '0'
+  `sort_order` int(11) NOT NULL DEFAULT 0
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
 
 -- --------------------------------------------------------
 
 --
--- Cấu trúc bảng cho bảng `news`
+-- Table structure for table `news`
 --
 
 CREATE TABLE `news` (
@@ -285,13 +286,13 @@ CREATE TABLE `news` (
   `meta_desc` varchar(255) CHARACTER SET utf8 COLLATE utf8_unicode_ci NOT NULL,
   `meta_key` varchar(255) CHARACTER SET utf8 COLLATE utf8_unicode_ci NOT NULL,
   `image_link` varchar(50) COLLATE utf8_bin NOT NULL,
-  `created` int(11) NOT NULL DEFAULT '0',
+  `created` int(11) NOT NULL DEFAULT 0,
   `feature` enum('0','1') COLLATE utf8_bin NOT NULL,
-  `count_view` int(11) NOT NULL DEFAULT '0'
+  `count_view` int(11) NOT NULL DEFAULT 0
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
 
 --
--- Đang đổ dữ liệu cho bảng `news`
+-- Dumping data for table `news`
 --
 
 INSERT INTO `news` (`id`, `title`, `slug`, `intro`, `content`, `meta_desc`, `meta_key`, `image_link`, `created`, `feature`, `count_view`) VALUES
@@ -303,21 +304,21 @@ INSERT INTO `news` (`id`, `title`, `slug`, `intro`, `content`, `meta_desc`, `met
 -- --------------------------------------------------------
 
 --
--- Cấu trúc bảng cho bảng `order`
+-- Table structure for table `order`
 --
 
 CREATE TABLE `order` (
   `transaction_id` int(255) NOT NULL,
   `id` int(255) NOT NULL,
   `product_id` int(255) NOT NULL,
-  `qty` int(11) NOT NULL DEFAULT '0',
-  `amount` decimal(15,4) NOT NULL DEFAULT '0.0000',
+  `qty` int(11) NOT NULL DEFAULT 0,
+  `amount` decimal(15,4) NOT NULL DEFAULT 0.0000,
   `data` text COLLATE utf8_bin NOT NULL,
-  `status` tinyint(4) NOT NULL DEFAULT '0'
+  `status` tinyint(4) NOT NULL DEFAULT 0
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
 
 --
--- Đang đổ dữ liệu cho bảng `order`
+-- Dumping data for table `order`
 --
 
 INSERT INTO `order` (`transaction_id`, `id`, `product_id`, `qty`, `amount`, `data`, `status`) VALUES
@@ -327,7 +328,7 @@ INSERT INTO `order` (`transaction_id`, `id`, `product_id`, `qty`, `amount`, `dat
 -- --------------------------------------------------------
 
 --
--- Cấu trúc bảng cho bảng `product`
+-- Table structure for table `product`
 --
 
 CREATE TABLE `product` (
@@ -336,13 +337,14 @@ CREATE TABLE `product` (
   `name` varchar(100) COLLATE utf8_unicode_ci NOT NULL,
   `slug` varchar(250) COLLATE utf8_unicode_ci DEFAULT NULL,
   `maker_id` int(255) NOT NULL,
-  `price` decimal(15,4) NOT NULL DEFAULT '0.0000',
+  `price` decimal(15,4) NOT NULL DEFAULT 0.0000,
   `content` text COLLATE utf8_unicode_ci NOT NULL,
+  `short_content` text COLLATE utf8_unicode_ci NOT NULL,
   `discount` int(11) NOT NULL,
   `image_link` varchar(50) CHARACTER SET utf8 COLLATE utf8_bin NOT NULL,
   `image_list` text COLLATE utf8_unicode_ci NOT NULL,
-  `created` int(11) NOT NULL DEFAULT '0',
-  `view` int(11) NOT NULL DEFAULT '0',
+  `created` int(11) NOT NULL DEFAULT 0,
+  `view` int(11) NOT NULL DEFAULT 0,
   `meta_key` varchar(255) CHARACTER SET utf8 COLLATE utf8_bin NOT NULL,
   `site_title` varchar(255) CHARACTER SET utf8 COLLATE utf8_bin NOT NULL,
   `total` int(255) NOT NULL,
@@ -352,28 +354,50 @@ CREATE TABLE `product` (
   `rate_count` int(255) NOT NULL,
   `video` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
   `meta_desc` varchar(255) CHARACTER SET utf8 COLLATE utf8_bin NOT NULL,
-  `feature` enum('0','1') CHARACTER SET utf8 COLLATE utf8_bin NOT NULL
+  `feature` enum('0','1') CHARACTER SET utf8 COLLATE utf8_bin NOT NULL,
+  `status` int(2) NOT NULL,
+  `service` text COLLATE utf8_unicode_ci NOT NULL
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 --
--- Đang đổ dữ liệu cho bảng `product`
+-- Dumping data for table `product`
 --
 
-INSERT INTO `product` (`id`, `catalog_id`, `name`, `slug`, `maker_id`, `price`, `content`, `discount`, `image_link`, `image_list`, `created`, `view`, `meta_key`, `site_title`, `total`, `is_home`, `buyed`, `rate_total`, `rate_count`, `video`, `meta_desc`, `feature`) VALUES
-(2, 15, 'Tivi LG 4000', NULL, 0, '4000000.0000', 'Bài viết cho sản phẩm này đang được cập nhật ...', 200000, 'product2.jpg', '', 0, 6, '', '', 0, NULL, 0, 9, 2, 'https://www.youtube.com/watch?v=zAEYQ6FDO5U', '', '0'),
-(3, 13, 'Tivi Akai', NULL, 0, '5000000.0000', 'Bài viết cho sản phẩm này đang được cập nhật ...', 0, 'product1.jpg', '', 0, 8, '', '', 0, NULL, 0, 4, 1, 'https://www.youtube.com/watch?v=zAEYQ6FDO5U', '', '0'),
-(4, 16, 'Tivi Panasonic', NULL, 0, '6000000.0000', 'Bài viết cho sản phẩm này đang được cập nhật ...', 0, 'product3.jpg', '', 0, 4, '', '', 0, NULL, 0, 12, 3, 'https://www.youtube.com/watch?v=zAEYQ6FDO5U', '', '0'),
-(5, 17, 'Tivi Samsung', NULL, 0, '5500000.0000', 'Bài viết cho sản phẩm này đang được cập nhật ...', 0, 'product4.jpg', '', 0, 1, '', '', 0, NULL, 0, 0, 0, 'https://www.youtube.com/watch?v=zAEYQ6FDO5U', '', '0'),
-(6, 15, 'Tivi LG 5000', NULL, 0, '5000000.0000', 'Bài viết cho sản phẩm này đang được cập nhật ...', 0, 'product5.jpg', '', 0, 1, '', '', 0, NULL, 0, 0, 0, 'https://www.youtube.com/watch?v=zAEYQ6FDO5U', '', '0'),
-(7, 18, 'Tivi Toshiba', NULL, 0, '6200000.0000', 'Bài viết cho sản phẩm này đang được cập nhật ...', 400000, 'product6.jpg', '', 0, 85, '', '', 0, NULL, 1, 20, 5, 'https://www.youtube.com/watch?v=zAEYQ6FDO5U', '', '0'),
-(8, 14, 'Tivi JVC 500', NULL, 0, '10000000.0000', '<p>\r\n	B&agrave;i viết cho sản phẩm n&agrave;y đang được cập nhật ...</p>\r\n', 500000, 'product7.jpg', '[\"Chrysanthemum.jpg\",\"Desert.jpg\"]', 0, 114, '', '', 0, NULL, 1, 17, 5, 'https://www.youtube.com/watch?v=zAEYQ6FDO5U', '', '0'),
-(9, 15, 'Tivi LG 520', NULL, 0, '5400000.0000', '<p>\r\n	B&agrave;i viết cho sản phẩm n&agrave;y đang được cập nhật ...</p>\r\n', 0, 'product13.jpg', 'a:0:{}', 0, 30, '', '', 0, NULL, 0, 7, 2, 'https://www.youtube.com/watch?v=zAEYQ6FDO5U', '', '0'),
-(16, 18, 'test test test', 'test-test-test-1', 0, '90000.0000', '<p>\r\n	1</p>\r\n', 1000, '16bf2af1c153230d7a421.jpg', '[\"Screenshot_21.png\",\"Screenshot_31.png\"]', 1558752161, 0, '1', '11', 100, 1, 0, 0, 0, '', '1', '0');
+INSERT INTO `product` (`id`, `catalog_id`, `name`, `slug`, `maker_id`, `price`, `content`, `short_content`, `discount`, `image_link`, `image_list`, `created`, `view`, `meta_key`, `site_title`, `total`, `is_home`, `buyed`, `rate_total`, `rate_count`, `video`, `meta_desc`, `feature`, `status`, `service`) VALUES
+(2, 15, 'Tivi LG 4000', NULL, 0, '4000000.0000', 'Bài viết cho sản phẩm này đang được cập nhật ...', '', 200000, 'product2.jpg', '', 0, 6, '', '', 0, NULL, 0, 9, 2, 'https://www.youtube.com/watch?v=zAEYQ6FDO5U', '', '0', 0, ''),
+(3, 13, 'Tivi Akai', NULL, 0, '5000000.0000', 'Bài viết cho sản phẩm này đang được cập nhật ...', '', 0, 'product1.jpg', '', 0, 8, '', '', 0, NULL, 0, 4, 1, 'https://www.youtube.com/watch?v=zAEYQ6FDO5U', '', '0', 0, ''),
+(4, 16, 'Tivi Panasonic', NULL, 0, '6000000.0000', 'Bài viết cho sản phẩm này đang được cập nhật ...', '', 0, 'product3.jpg', '', 0, 4, '', '', 0, NULL, 0, 12, 3, 'https://www.youtube.com/watch?v=zAEYQ6FDO5U', '', '0', 0, ''),
+(5, 17, 'Tivi Samsung', NULL, 0, '5500000.0000', 'Bài viết cho sản phẩm này đang được cập nhật ...', '', 0, 'product4.jpg', '', 0, 1, '', '', 0, NULL, 0, 0, 0, 'https://www.youtube.com/watch?v=zAEYQ6FDO5U', '', '0', 0, ''),
+(6, 15, 'Tivi LG 5000', NULL, 0, '5000000.0000', 'Bài viết cho sản phẩm này đang được cập nhật ...', '', 0, 'product5.jpg', '', 0, 1, '', '', 0, NULL, 0, 0, 0, 'https://www.youtube.com/watch?v=zAEYQ6FDO5U', '', '0', 0, ''),
+(7, 18, 'Tivi Toshiba', NULL, 0, '6200000.0000', 'Bài viết cho sản phẩm này đang được cập nhật ...', '', 400000, 'product6.jpg', '', 0, 85, '', '', 0, NULL, 1, 20, 5, 'https://www.youtube.com/watch?v=zAEYQ6FDO5U', '', '0', 0, ''),
+(8, 14, 'Tivi JVC 500', NULL, 0, '10000000.0000', '<p>\r\n	B&agrave;i viết cho sản phẩm n&agrave;y đang được cập nhật ...</p>\r\n', '', 500000, 'product7.jpg', '[\"Chrysanthemum.jpg\",\"Desert.jpg\"]', 0, 114, '', '', 0, NULL, 1, 17, 5, 'https://www.youtube.com/watch?v=zAEYQ6FDO5U', '', '0', 0, ''),
+(9, 15, 'Tivi LG 520', NULL, 0, '5400000.0000', '<p>\r\n	B&agrave;i viết cho sản phẩm n&agrave;y đang được cập nhật ...</p>\r\n', '', 0, 'product13.jpg', 'a:0:{}', 0, 30, '', '', 0, NULL, 0, 7, 2, 'https://www.youtube.com/watch?v=zAEYQ6FDO5U', '', '0', 0, ''),
+(16, 18, 'test test test', 'test-test-test-1', 0, '90000.0000', '<p>\r\n	1</p>\r\n', '', 1000, '16bf2af1c153230d7a421.jpg', '[\"Screenshot_21.png\",\"Screenshot_31.png\"]', 1558752161, 0, '1', '11', 100, 1, 0, 0, 0, '', '1', '0', 0, '');
 
 -- --------------------------------------------------------
 
 --
--- Cấu trúc bảng cho bảng `slide`
+-- Table structure for table `services`
+--
+
+CREATE TABLE `services` (
+  `title` varchar(200) NOT NULL,
+  `content` text NOT NULL,
+  `meta_key` text NOT NULL,
+  `meta_desc` text NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `services`
+--
+
+INSERT INTO `services` (`title`, `content`, `meta_key`, `meta_desc`) VALUES
+('SERVICES', 'What products are warranted?\r\nLorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.\r\n\r\nLorem ipsum dolor sit amet, consectetur adipiscing elit.\r\nSed do eiusmod tempor incididunt ut labore et dolore magna aliqua.\r\nUt enim ad minim veniam, quis nostrud exercitation\r\nUllamco laboris nisi ut aliquip ex ea commodo consequat.', 'What products are warranted?\r\nLorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.\r\n\r\nLorem ipsum dolor sit amet, consectetur adipiscing elit.\r\nSed do eiusmod tempor incididunt ut labore et dolore magna aliqua.\r\nUt enim ad minim veniam, quis nostrud exercitation\r\nUllamco laboris nisi ut aliquip ex ea commodo consequat.', 'What products are warranted?\r\nLorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.\r\n\r\nLorem ipsum dolor sit amet, consectetur adipiscing elit.\r\nSed do eiusmod tempor incididunt ut labore et dolore magna aliqua.\r\nUt enim ad minim veniam, quis nostrud exercitation\r\nUllamco laboris nisi ut aliquip ex ea commodo consequat.');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `slide`
 --
 
 CREATE TABLE `slide` (
@@ -387,7 +411,7 @@ CREATE TABLE `slide` (
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 --
--- Đang đổ dữ liệu cho bảng `slide`
+-- Dumping data for table `slide`
 --
 
 INSERT INTO `slide` (`id`, `name`, `image_name`, `image_link`, `link`, `info`, `sort_order`) VALUES
@@ -398,7 +422,7 @@ INSERT INTO `slide` (`id`, `name`, `image_name`, `image_link`, `link`, `info`, `
 -- --------------------------------------------------------
 
 --
--- Cấu trúc bảng cho bảng `store_address`
+-- Table structure for table `store_address`
 --
 
 CREATE TABLE `store_address` (
@@ -412,7 +436,7 @@ CREATE TABLE `store_address` (
 -- --------------------------------------------------------
 
 --
--- Cấu trúc bảng cho bảng `support`
+-- Table structure for table `support`
 --
 
 CREATE TABLE `support` (
@@ -422,46 +446,58 @@ CREATE TABLE `support` (
   `skype` varchar(50) COLLATE utf8_unicode_ci NOT NULL,
   `phone` varchar(20) COLLATE utf8_unicode_ci NOT NULL,
   `hotline` varchar(30) COLLATE utf8_unicode_ci DEFAULT NULL,
+  `fanpage_fb` varchar(256) COLLATE utf8_unicode_ci NOT NULL,
+  `fanpage_twitter` varchar(256) COLLATE utf8_unicode_ci NOT NULL,
+  `fanpage_linkedin` varchar(256) COLLATE utf8_unicode_ci NOT NULL,
   `site_title` text COLLATE utf8_unicode_ci NOT NULL,
   `site_key` text COLLATE utf8_unicode_ci NOT NULL,
   `site_desc` text COLLATE utf8_unicode_ci NOT NULL,
   `zalo` text COLLATE utf8_unicode_ci NOT NULL,
   `facebook` text COLLATE utf8_unicode_ci NOT NULL,
   `logo` text COLLATE utf8_unicode_ci NOT NULL,
-  `sort_order` tinyint(4) NOT NULL
+  `slogan` text COLLATE utf8_unicode_ci NOT NULL,
+  `favicon` varchar(100) COLLATE utf8_unicode_ci NOT NULL,
+  `sort_order` tinyint(4) NOT NULL,
+  `robots` varchar(150) COLLATE utf8_unicode_ci NOT NULL,
+  `author` varchar(200) COLLATE utf8_unicode_ci NOT NULL,
+  `copyright` varchar(250) COLLATE utf8_unicode_ci NOT NULL,
+  `geo_region` varchar(20) COLLATE utf8_unicode_ci NOT NULL,
+  `geo_placename` varchar(250) COLLATE utf8_unicode_ci NOT NULL,
+  `og_image` varchar(200) COLLATE utf8_unicode_ci NOT NULL,
+  `og_type` varchar(50) COLLATE utf8_unicode_ci NOT NULL
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 --
--- Đang đổ dữ liệu cho bảng `support`
+-- Dumping data for table `support`
 --
 
-INSERT INTO `support` (`id`, `name`, `gmail`, `skype`, `phone`, `hotline`, `site_title`, `site_key`, `site_desc`, `zalo`, `facebook`, `logo`, `sort_order`) VALUES
-(1, 'VP DI', 'vpduy84@gmail.com', 'vpduy84', '123456', '123456', 'Hoa Quả Miền Nam', 'hoa quả, miền nam', 'cung cấp trái cây sỉ lẽ, uy tính, chất lượng', 'fanpage zalo', 'fanpage facebook', 'bong-lua-vang.jpg', 1);
+INSERT INTO `support` (`id`, `name`, `gmail`, `skype`, `phone`, `hotline`, `fanpage_fb`, `fanpage_twitter`, `fanpage_linkedin`, `site_title`, `site_key`, `site_desc`, `zalo`, `facebook`, `logo`, `slogan`, `favicon`, `sort_order`, `robots`, `author`, `copyright`, `geo_region`, `geo_placename`, `og_image`, `og_type`) VALUES
+(1, 'TeamCafe Sữa', 'teamcafesua@gmail.com', 'teamcafesua@gmail.com', '123456', '123456', 'https://www.facebook.com/cafesuateam', '', '', 'Cafesuanovel, hội mê truyện, mê đọc manga.', 'manga, truyện tranh, truyện chữ, truyện ngắn, cafesuanovel, Iphone 12, BPhone, Bphone B86, Ipad mới, Ipad 2020, nhất truyện, truyện vui, truyện tranh, truyện tiếu lâm, hai2vl, xem.vn, gmail, outlook, lightnovelworld, facebook, fb, sơn tùng mtp, jack, duy, thi, thảo,zalo, trà thảo mộc, index, mysql, php, css, samsung, javascript, apple, oppo, xiaomi, readmi, poco', 'một nhóm các thành viên cùng chí hướng và sản phẩm là nội dung trong site này ', 'fanpage zalo', 'fanpage facebook', 'logo-Recovered.png', 'Lướt cà phê sữa<br/>\r\nMuốn đọc nữa, hông muốn dừng.', 'logo-Recovered2.png', 1, 'noodp,index,follow', 'TeamCafeSua', 'TeamCafeSua', 'VN', '123 Quận Phú Nhuận, Hồ chí Minh', 'logo-Recovered1.png', 'website');
 
 -- --------------------------------------------------------
 
 --
--- Cấu trúc bảng cho bảng `transaction`
+-- Table structure for table `transaction`
 --
 
 CREATE TABLE `transaction` (
   `id` bigint(20) NOT NULL,
-  `type` tinyint(4) NOT NULL DEFAULT '0',
-  `status` tinyint(4) NOT NULL DEFAULT '0',
-  `user_id` int(11) NOT NULL DEFAULT '0',
+  `type` tinyint(4) NOT NULL DEFAULT 0,
+  `status` tinyint(4) NOT NULL DEFAULT 0,
+  `user_id` int(11) NOT NULL DEFAULT 0,
   `user_name` varchar(50) CHARACTER SET utf8 COLLATE utf8_unicode_ci NOT NULL,
   `user_email` varchar(50) COLLATE utf8_bin NOT NULL,
   `user_phone` varchar(20) COLLATE utf8_bin NOT NULL,
-  `amount` decimal(15,4) NOT NULL DEFAULT '0.0000',
+  `amount` decimal(15,4) NOT NULL DEFAULT 0.0000,
   `payment` varchar(32) CHARACTER SET utf8 COLLATE utf8_unicode_ci NOT NULL,
   `payment_info` text COLLATE utf8_bin NOT NULL,
   `message` varchar(255) COLLATE utf8_bin NOT NULL,
   `security` varchar(16) CHARACTER SET utf8 COLLATE utf8_unicode_ci NOT NULL,
-  `created` int(11) NOT NULL DEFAULT '0'
+  `created` int(11) NOT NULL DEFAULT 0
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
 
 --
--- Đang đổ dữ liệu cho bảng `transaction`
+-- Dumping data for table `transaction`
 --
 
 INSERT INTO `transaction` (`id`, `type`, `status`, `user_id`, `user_name`, `user_email`, `user_phone`, `amount`, `payment`, `payment_info`, `message`, `security`, `created`) VALUES
@@ -490,7 +526,7 @@ INSERT INTO `transaction` (`id`, `type`, `status`, `user_id`, `user_name`, `user
 -- --------------------------------------------------------
 
 --
--- Cấu trúc bảng cho bảng `user`
+-- Table structure for table `user`
 --
 
 CREATE TABLE `user` (
@@ -504,7 +540,7 @@ CREATE TABLE `user` (
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 --
--- Đang đổ dữ liệu cho bảng `user`
+-- Dumping data for table `user`
 --
 
 INSERT INTO `user` (`id`, `name`, `email`, `phone`, `address`, `password`, `created`) VALUES
@@ -513,7 +549,7 @@ INSERT INTO `user` (`id`, `name`, `email`, `phone`, `address`, `password`, `crea
 -- --------------------------------------------------------
 
 --
--- Cấu trúc bảng cho bảng `video`
+-- Table structure for table `video`
 --
 
 CREATE TABLE `video` (
@@ -529,7 +565,7 @@ CREATE TABLE `video` (
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 --
--- Đang đổ dữ liệu cho bảng `video`
+-- Dumping data for table `video`
 --
 
 INSERT INTO `video` (`id`, `count_view`, `name`, `images`, `intro`, `link`, `feature`, `created`, `view`) VALUES
@@ -553,252 +589,252 @@ INSERT INTO `video` (`id`, `count_view`, `name`, `images`, `intro`, `link`, `fea
 (30, 12, 'Dĩ Vãng Cuộc Tình - Duy Mạnh ft Tuấn Hưng', '140905101897_video.jpg', '', 'http://www.youtube.com/watch?v=g8I-LoBIFgQ', 0, 1409051018, 0);
 
 --
--- Chỉ mục cho các bảng đã đổ
+-- Indexes for dumped tables
 --
 
 --
--- Chỉ mục cho bảng `admin`
+-- Indexes for table `admin`
 --
 ALTER TABLE `admin`
   ADD PRIMARY KEY (`id`);
 
 --
--- Chỉ mục cho bảng `admin_group`
+-- Indexes for table `admin_group`
 --
 ALTER TABLE `admin_group`
   ADD PRIMARY KEY (`id`);
 
 --
--- Chỉ mục cho bảng `banner`
+-- Indexes for table `banner`
 --
 ALTER TABLE `banner`
   ADD PRIMARY KEY (`id`);
 
 --
--- Chỉ mục cho bảng `catalog`
+-- Indexes for table `catalog`
 --
 ALTER TABLE `catalog`
   ADD PRIMARY KEY (`id`);
 
 --
--- Chỉ mục cho bảng `comment`
+-- Indexes for table `comment`
 --
 ALTER TABLE `comment`
   ADD PRIMARY KEY (`id`);
 
 --
--- Chỉ mục cho bảng `connecter`
+-- Indexes for table `connecter`
 --
 ALTER TABLE `connecter`
   ADD PRIMARY KEY (`id`);
 
 --
--- Chỉ mục cho bảng `contact`
+-- Indexes for table `contact`
 --
 ALTER TABLE `contact`
   ADD PRIMARY KEY (`id`);
 
 --
--- Chỉ mục cho bảng `content_static`
+-- Indexes for table `content_static`
 --
 ALTER TABLE `content_static`
   ADD PRIMARY KEY (`id`,`key`);
 
 --
--- Chỉ mục cho bảng `info`
+-- Indexes for table `info`
 --
 ALTER TABLE `info`
   ADD PRIMARY KEY (`id`);
 ALTER TABLE `info` ADD FULLTEXT KEY `title` (`title`);
 
 --
--- Chỉ mục cho bảng `maker`
+-- Indexes for table `maker`
 --
 ALTER TABLE `maker`
   ADD PRIMARY KEY (`id`);
 
 --
--- Chỉ mục cho bảng `menu`
+-- Indexes for table `menu`
 --
 ALTER TABLE `menu`
   ADD PRIMARY KEY (`id`);
 
 --
--- Chỉ mục cho bảng `news`
+-- Indexes for table `news`
 --
 ALTER TABLE `news`
   ADD PRIMARY KEY (`id`);
 ALTER TABLE `news` ADD FULLTEXT KEY `title` (`title`);
 
 --
--- Chỉ mục cho bảng `order`
+-- Indexes for table `order`
 --
 ALTER TABLE `order`
   ADD PRIMARY KEY (`id`);
 
 --
--- Chỉ mục cho bảng `product`
+-- Indexes for table `product`
 --
 ALTER TABLE `product`
   ADD PRIMARY KEY (`id`);
 ALTER TABLE `product` ADD FULLTEXT KEY `name` (`name`);
 
 --
--- Chỉ mục cho bảng `slide`
+-- Indexes for table `slide`
 --
 ALTER TABLE `slide`
   ADD PRIMARY KEY (`id`);
 
 --
--- Chỉ mục cho bảng `store_address`
+-- Indexes for table `store_address`
 --
 ALTER TABLE `store_address`
   ADD PRIMARY KEY (`id`);
 
 --
--- Chỉ mục cho bảng `support`
+-- Indexes for table `support`
 --
 ALTER TABLE `support`
   ADD PRIMARY KEY (`id`);
 
 --
--- Chỉ mục cho bảng `transaction`
+-- Indexes for table `transaction`
 --
 ALTER TABLE `transaction`
   ADD PRIMARY KEY (`id`);
 
 --
--- Chỉ mục cho bảng `user`
+-- Indexes for table `user`
 --
 ALTER TABLE `user`
   ADD PRIMARY KEY (`id`);
 
 --
--- Chỉ mục cho bảng `video`
+-- Indexes for table `video`
 --
 ALTER TABLE `video`
   ADD PRIMARY KEY (`id`);
 
 --
--- AUTO_INCREMENT cho các bảng đã đổ
+-- AUTO_INCREMENT for dumped tables
 --
 
 --
--- AUTO_INCREMENT cho bảng `admin`
+-- AUTO_INCREMENT for table `admin`
 --
 ALTER TABLE `admin`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
 
 --
--- AUTO_INCREMENT cho bảng `admin_group`
+-- AUTO_INCREMENT for table `admin_group`
 --
 ALTER TABLE `admin_group`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
--- AUTO_INCREMENT cho bảng `banner`
+-- AUTO_INCREMENT for table `banner`
 --
 ALTER TABLE `banner`
   MODIFY `id` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
--- AUTO_INCREMENT cho bảng `catalog`
+-- AUTO_INCREMENT for table `catalog`
 --
 ALTER TABLE `catalog`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=24;
 
 --
--- AUTO_INCREMENT cho bảng `comment`
+-- AUTO_INCREMENT for table `comment`
 --
 ALTER TABLE `comment`
   MODIFY `id` int(255) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
--- AUTO_INCREMENT cho bảng `connecter`
+-- AUTO_INCREMENT for table `connecter`
 --
 ALTER TABLE `connecter`
   MODIFY `id` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
--- AUTO_INCREMENT cho bảng `contact`
+-- AUTO_INCREMENT for table `contact`
 --
 ALTER TABLE `contact`
   MODIFY `id` int(128) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=17;
 
 --
--- AUTO_INCREMENT cho bảng `content_static`
+-- AUTO_INCREMENT for table `content_static`
 --
 ALTER TABLE `content_static`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=19;
 
 --
--- AUTO_INCREMENT cho bảng `info`
+-- AUTO_INCREMENT for table `info`
 --
 ALTER TABLE `info`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
--- AUTO_INCREMENT cho bảng `maker`
+-- AUTO_INCREMENT for table `maker`
 --
 ALTER TABLE `maker`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
 
 --
--- AUTO_INCREMENT cho bảng `menu`
+-- AUTO_INCREMENT for table `menu`
 --
 ALTER TABLE `menu`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
 
 --
--- AUTO_INCREMENT cho bảng `news`
+-- AUTO_INCREMENT for table `news`
 --
 ALTER TABLE `news`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
--- AUTO_INCREMENT cho bảng `order`
+-- AUTO_INCREMENT for table `order`
 --
 ALTER TABLE `order`
   MODIFY `id` int(255) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=28;
 
 --
--- AUTO_INCREMENT cho bảng `product`
+-- AUTO_INCREMENT for table `product`
 --
 ALTER TABLE `product`
   MODIFY `id` int(255) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=17;
 
 --
--- AUTO_INCREMENT cho bảng `slide`
+-- AUTO_INCREMENT for table `slide`
 --
 ALTER TABLE `slide`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
--- AUTO_INCREMENT cho bảng `store_address`
+-- AUTO_INCREMENT for table `store_address`
 --
 ALTER TABLE `store_address`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
 
 --
--- AUTO_INCREMENT cho bảng `support`
+-- AUTO_INCREMENT for table `support`
 --
 ALTER TABLE `support`
   MODIFY `id` int(255) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
--- AUTO_INCREMENT cho bảng `transaction`
+-- AUTO_INCREMENT for table `transaction`
 --
 ALTER TABLE `transaction`
   MODIFY `id` bigint(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=28;
 
 --
--- AUTO_INCREMENT cho bảng `user`
+-- AUTO_INCREMENT for table `user`
 --
 ALTER TABLE `user`
   MODIFY `id` int(255) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=21;
 
 --
--- AUTO_INCREMENT cho bảng `video`
+-- AUTO_INCREMENT for table `video`
 --
 ALTER TABLE `video`
   MODIFY `id` int(255) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=31;

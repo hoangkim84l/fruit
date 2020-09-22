@@ -94,7 +94,7 @@ class Support extends MY_Controller {
         $this->form_validation->set_rules('name', 'Tên hỗ trợ', 'required');
         $this->form_validation->set_rules('phone', 'Số điện thoại', 'required|numeric');
         $this->form_validation->set_rules('gmail', 'Email', 'valid_email');
-        
+       
         if($this->form_validation->run())
         {
 			
@@ -102,10 +102,22 @@ class Support extends MY_Controller {
 			$this->load->library('upload_library');
 			$upload_path = './upload/logo';
 			$upload_data = $this->upload_library->upload($upload_path, 'image');
+			$upload_og_image = $this->upload_library->upload($upload_path, 'og_image');
+			$upload_favicon = $this->upload_library->upload($upload_path, 'favicon');
 			$image_link = '';
+			$og_image = '';
+			$favicon = '';
 			if(isset($upload_data['file_name']))
 			{
 				$image_link = $upload_data['file_name'];
+			}
+			if(isset($upload_og_image['file_name']))
+			{
+				$og_image = $upload_og_image['file_name'];
+			}
+			if(isset($upload_favicon['file_name']))
+			{
+				$favicon = $upload_favicon['file_name'];
 			}
 			
             //lay du lieu ma admin nhap vao form
@@ -115,16 +127,34 @@ class Support extends MY_Controller {
             $data['hotline']    = $this->input->post('hotline');
             $data['gmail']      = $this->input->post('gmail');
             $data['skype']      = $this->input->post('skype');
-			$data['site_title']      = $this->input->post('site_title');
-			$data['site_key']      = $this->input->post('site_key');
-			$data['site_desc']      = $this->input->post('site_desc');
-			$data['zalo']      = $this->input->post('zalo');
-			$data['facebook']      = $this->input->post('facebook');			
+            $data['fanpage_fb']      	= $this->input->post('fanpage_fb');
+            $data['fanpage_twitter']    = $this->input->post('fanpage_twitter');
+            $data['	fanpage_linkedin']  = $this->input->post('fanpage_linkedin');
+			$data['site_title'] = $this->input->post('site_title');
+			$data['site_key']   = $this->input->post('site_key');
+			$data['site_desc']  = $this->input->post('site_desc');
+			$data['robots']  	= $this->input->post('robots');
+			$data['author']  	= $this->input->post('author');
+			$data['slogan']  	= $this->input->post('slogan');
+			$data['copyright']  = $this->input->post('copyright');
+			$data['geo_region'] = $this->input->post('geo_region');
+			$data['geo_placename']  = $this->input->post('geo_placename');
+			$data['og_type']  	= $this->input->post('og_type');
+			$data['zalo']       = $this->input->post('zalo');
+			$data['facebook']   = $this->input->post('facebook');			
             $data['sort_order'] = $this->input->post('sort_order');//vi tri sắp xếp
 			
 			if($image_link != '')
 			{
 				$data['logo'] = $image_link;
+			}
+			if($og_image != '')
+			{
+				$data['og_image'] = $og_image;
+			}
+			if($favicon != '')
+			{
+				$data['favicon'] = $favicon;
 			}
 				
             if($this->support_model->update($id, $data))
