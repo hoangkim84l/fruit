@@ -6,9 +6,12 @@ Class User extends MY_Controller
         parent::__construct();
         $this->load->model('user_model');
     }
-    
-    /*
-     * Kiểm tra email đã tồn tại chưa
+    /**
+     * Description: Kiểm tra email tồn tại hay chưa
+     * Function: check_email()
+     * @author: Di
+     * @params: none
+     * @return: true or false
      */
     function check_email()
     {
@@ -23,9 +26,12 @@ Class User extends MY_Controller
         }
         return true;
     }
-    
-    /*
-     * Đăng ký thành viên
+    /**
+     * Description: Đăng k1i thành viên
+     * Function: register()
+     * @author: Di
+     * @params: none
+     * @return: Save data
      */
     function register()
     {
@@ -79,9 +85,12 @@ Class User extends MY_Controller
         $this->data['temp'] = 'site/user/register';
         $this->load->view('site/layout', $this->data);
     }
-    
-    /*
-     * Kiem tra đăng nhập
+    /**
+     * Description: Kiểm tra đăng nhập
+     * Function: login()
+     * @author: Di
+     * @params: none
+     * @return: Check session and redirect
      */
     function login()
     {
@@ -115,9 +124,12 @@ Class User extends MY_Controller
         $this->data['temp'] = 'site/user/login';
         $this->load->view('site/layout', $this->data);
     }
-
-    /*
-     * Kiem tra email va password co chinh xac khong
+    /**
+     * Description: Kiểm tra thông tin đăng nhập đúng hay không
+     * Function: check_login()
+     * @author: Di
+     * @params: none
+     * @return: true or false
      */
     function check_login()
     {
@@ -129,9 +141,12 @@ Class User extends MY_Controller
         $this->form_validation->set_message(__FUNCTION__, 'Không đăng nhập thành công');
         return false;
     }
-    
-    /*
-     * Lay thong tin cua thanh vien
+    /**
+     * Description: Lấy thông tin thành viên
+     * Function: _get_user_info()
+     * @author: Di
+     * @params: none
+     * @return: none
      */
     private function _get_user_info()
     {
@@ -143,9 +158,12 @@ Class User extends MY_Controller
         $user = $this->user_model->get_info_rule($where);
         return $user;
     }
-    
-    /*
-     * Chinh sua thong tin thanh vien
+    /**
+     * Description: Cập nhật thông tin thành viên
+     * Function: edit()
+     * @author: Di
+     * @params: none
+     * @return: save new data
      */
     function edit()
     {
@@ -210,9 +228,12 @@ Class User extends MY_Controller
         $this->data['temp'] = 'site/user/edit';
         $this->load->view('site/layout', $this->data);
     }
-    
-    /*
-     * Thong tin cua thanh vien
+    /**
+     * Description: Hiển thị thông tin thành viên
+     * Function: index()
+     * @author: Di
+     * @params: none
+     * @return: none
      */
     function index()
     {
@@ -232,9 +253,12 @@ Class User extends MY_Controller
         $this->data['temp'] = 'site/user/index';
         $this->load->view('site/layout', $this->data);
     }
-
-    /*
-     * Thuc hien dang xuat
+    /**
+     * Description: Thực hiện đăng xuất
+     * Function: logout()
+     * @author: Di
+     * @params: none
+     * @return: check and remove session user_id_login
      */
     function logout()
     {

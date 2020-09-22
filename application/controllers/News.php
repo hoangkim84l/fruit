@@ -10,11 +10,13 @@ class News extends MY_Controller
        parent::__construct();
        $this->load->model('news_model');
    }
-   
-  
-   /*
-    * Trang dang danh sách bài viết
-    */
+   /**
+     * Description: Lấy danh sách bài viết
+     * Function: index()
+     * @author: Di
+     * @params: none
+     * @return: list news
+     */
    public function index()
    {
    	  //Buoc 1:load thu vien phan trang
@@ -45,10 +47,13 @@ class News extends MY_Controller
 	  $this->data['temp'] = 'site/news/list';
 	  $this->load->view('site/layout', $this->data);
    }
-   
-   /*
-    * Trang chi tiết bài viết
-    */
+   /**
+     * Description: Xem bài viết chi tiết, cộng lượt xem
+     * Function: view()
+     * @author: Di
+     * @params: none
+     * @return: view detail
+     */
    public function view()
    {
         // Lay thong tin cua bài viết

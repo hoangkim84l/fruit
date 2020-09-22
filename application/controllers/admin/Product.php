@@ -8,8 +8,12 @@ Class Product extends MY_Controller
         $this->load->model('product_model');
     }
     
-    /*
-     * Hien thi danh sach san pham
+    /**
+     * Description: Hiển thị danh sách sản phẩm
+     * Function: index()
+     * @author: Di
+     * @params: none
+     * @return: get list products
      */
     function index()
     {
@@ -81,8 +85,12 @@ Class Product extends MY_Controller
         $this->load->view('admin/main', $this->data);
     }
     
-    /*
-     * Them san pham moi
+    /**
+     * Description: Thêm mới dữ liệu
+     * Function: add()
+     * @author: Di
+     * @params: none
+     * @return: save new data to database
      */
     function add()
     {
@@ -174,14 +182,17 @@ Class Product extends MY_Controller
             }
         }
         
-        
         //load view
         $this->data['temp'] = 'admin/product/add';
         $this->load->view('admin/main', $this->data);
     }
     
-    /*
-     * Chinh sua san pham
+    /**
+     * Description: Cập nhật dữ liệu
+     * Function: edit()
+     * @author: Di
+     * @params: none
+     * @return: save new data to database
      */
     function edit()
     {
@@ -294,8 +305,12 @@ Class Product extends MY_Controller
         $this->load->view('admin/main', $this->data);
     }
     
-    /*
-     * Xoa du lieu
+    /**
+     * Description: Xóa sản phẩm
+     * Function: del()
+     * @author: Di
+     * @params: none
+     * @return: remove record
      */
     function del()
     {
@@ -307,8 +322,12 @@ Class Product extends MY_Controller
         redirect(admin_url('product'));
     }
     
-    /*
-     * Xóa nhiều sản phẩm
+    /**
+     * Description: Xóa nhiều dữ liệu
+     * Function: delete_all()
+     * @author: Di
+     * @params: none
+     * @return: remove multi data to database
      */
     function delete_all()
     {
@@ -319,8 +338,12 @@ Class Product extends MY_Controller
         }
     }
     
-    /*
-     *Xoa san pham
+    /**
+     * Description: kiểm tra sản phẩm có hình ảnh không có thì xóa luôn
+     * Function: _del()
+     * @author: Di
+     * @params: $id
+     * @return: Xóa hình sản phẩm trong folder
      */
     private function _del($id)
     {
@@ -354,6 +377,3 @@ Class Product extends MY_Controller
         }
     }
 }
-
-
-

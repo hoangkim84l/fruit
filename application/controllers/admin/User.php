@@ -11,15 +11,13 @@ class User extends MY_Controller {
 		$this->lang->load('admin/user');
 	}
 	
-	
-/*
- * ------------------------------------------------------
- *  Rule handle
- * ------------------------------------------------------
- */
- /*
-    * Kiểm tra email đã tồn tại hay chưa
-    */
+	/**
+     * Description: Kiểm tra email đã tồn tại hay chưa
+     * Function: check_email()
+     * @author: Di
+     * @params: none
+     * @return: true or false
+     */
    function check_email()
    {
    	   
@@ -35,14 +33,13 @@ class User extends MY_Controller {
        }
        return TRUE;
    }
-/*
- * ------------------------------------------------------
- *  Action main handle
- * ------------------------------------------------------
- */
-	/**
-	 * Them moi
-	 */
+   /**
+     * Description: Thêm thành viên mới
+     * Function: add()
+     * @author: Di
+     * @params: none
+     * @return: add new record
+     */
 	function add()
 	{
 	   //load thu vien validation
@@ -88,10 +85,13 @@ class User extends MY_Controller {
 		$this->data['temp'] = 'admin/user/add';
 		$this->load->view('admin/main', $this->data);
 	}
-	
 	/**
-	 * Chinh sua
-	 */
+     * Description: Cập nhật thông tin thành viên
+     * Function: edt()
+     * @author: Di
+     * @params: none
+     * @return: Update new data
+     */
 	function edit()
 	{
 	    //lay id cua thanh vien ma ta muon xoa
@@ -154,25 +154,35 @@ class User extends MY_Controller {
 	}
 
 	/**
-	 * Khoa tai khoan
-	 */
+     * Description: Khóa tài khoản
+     * Function: block()
+     * @author: Di
+     * @params: none
+     * @return: none
+     */
 	function block()
 	{
 		
 	}
 	
 	/**
-	 * Mo lai tai khoan
-	 */
+     * Description: Mở lại tài khoản
+     * Function: inblock()
+     * @author: Di
+     * @params: none
+     * @return: none
+     */
 	function unblock()
 	{
 		
 	}
-	
-	
-	/*
-	 * Xoa du lieu
-	 */
+	/**
+     * Description: Xóa dữ liệu
+     * Function: del()
+     * @author: Di
+     * @params: none
+     * @return: none
+     */
 	function del()
 	{
 	    $id = $this->uri->rsegment(3);
@@ -182,10 +192,13 @@ class User extends MY_Controller {
 	    $this->session->set_flashdata('message', 'không tồn tại thành viên này');
 	    redirect(admin_url('user'));
 	}
-	
-	/*
-	 * Xóa nhiều sản phẩm
-	 */
+	/**
+     * Description: Xóa nhiều tài khoản
+     * Function: delete_all()
+     * @author: Di
+     * @params: none
+     * @return: none
+     */
 	function delete_all()
 	{
 	    $ids = $this->input->post('ids');
@@ -194,10 +207,13 @@ class User extends MY_Controller {
 	        $this->_del($id);
 	    }
 	}
-	
-	/*
-	 *Xoa san pham
-	 */
+	/**
+     * Description: Kiểm tra nếu user tồn tại xóa
+     * Function: _del()
+     * @author: Di
+     * @params: $id
+     * @return: Remove data
+     */
 	private function _del($id)
 	{
 	    $user = $this->user_model->get_info($id);
@@ -211,15 +227,13 @@ class User extends MY_Controller {
 	    $this->user_model->delete($id);
 	
 	}
-	
-/*
- * ------------------------------------------------------
- *  List handle
- * ------------------------------------------------------
- */
 	/**
-	 * Danh sach
-	 */
+     * Description: Lấy danh sách tài khoản
+     * Function: index()
+     * @author: Di
+     * @params: none
+     * @return: get list users
+     */
 	function index()
 	{
 	     //Buoc 1:load thu vien phan trang
@@ -256,7 +270,4 @@ class User extends MY_Controller {
 		$this->data['temp'] = 'admin/user/index';
 		$this->load->view('admin/main', $this->data);
 	}
-	
-	
-	
 }

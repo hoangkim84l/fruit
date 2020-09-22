@@ -8,8 +8,12 @@ Class News extends MY_Controller
         $this->load->model('news_model');
     }
     
-    /*
-     * Hien thi danh sach bài viết
+    /**
+     * Description: Hiển thị danh sách bài viết
+     * Function: index()
+     * @author: Di
+     * @params: none
+     * @return: get list news
      */
     function index()
     {
@@ -62,8 +66,12 @@ Class News extends MY_Controller
         $this->load->view('admin/main', $this->data);
     }
     
-    /*
-     * Them bai viet moi
+    /**
+     * Description: thêm mới dữ liệu
+     * Function: add()
+     * @author: Di
+     * @params: none
+     * @return: save data to database
      */
     function add()
     {
@@ -126,8 +134,12 @@ Class News extends MY_Controller
         $this->load->view('admin/main', $this->data);
     }
     
-    /*
-     * Chinh sua bài viết
+    /**
+     * Description: Cập nhật dữ liệu
+     * Function: edit()
+     * @author: Di
+     * @params: none
+     * @return: save new data to database
      */
     function edit()
     {
@@ -203,8 +215,12 @@ Class News extends MY_Controller
         $this->load->view('admin/main', $this->data);
     }
     
-    /*
-     * Xoa du lieu
+   /**
+     * Description: Xóa dữ liệu
+     * Function: del()
+     * @author: Di
+     * @params: none
+     * @return: remove data
      */
     function del()
     {
@@ -216,8 +232,12 @@ Class News extends MY_Controller
         redirect(admin_url('news'));
     }
     
-    /*
-     * Xóa nhiều bài viết
+    /**
+     * Description: Xóa nhiều dòng dữ liệu
+     * Function: delete_all()
+     * @author: Di
+     * @params: none
+     * @return: remove multi data
      */
     function delete_all()
     {
@@ -229,8 +249,12 @@ Class News extends MY_Controller
         }
     }
     
-    /*
-     *Xoa bài viết
+    /**
+     * Description: Kiểm tra bài viết có hình ảnh hay không có thì remove
+     * Function: _del()
+     * @author: Di
+     * @params: $id
+     * @return: xóa hình ảnh trong thư mục news
      */
     private function _del($id)
     {
@@ -252,6 +276,3 @@ Class News extends MY_Controller
         
     }
 }
-
-
-

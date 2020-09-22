@@ -8,12 +8,16 @@ Class Slide extends MY_Controller
         $this->load->model('slide_model');
     }
     
-    /*
-     * Hien thi danh sach slide
+    /**
+     * Description: Lấy danh sách slide
+     * Function: index()
+     * @author: Di
+     * @params: none
+     * @return: List slide
      */
     function index()
     {
-        //lay tong so luong ta ca cac slide trong websit
+        //lay tong so luong ta ca cac slide trong website
         $total_rows = $this->slide_model->get_total();
         $this->data['total_rows'] = $total_rows;
 
@@ -32,12 +36,15 @@ Class Slide extends MY_Controller
         $this->load->view('admin/main', $this->data);
     }
     
-    /*
-     * Them slide moi
+    /**
+     * Description: Thêm mới dữ liệu
+     * Function: add()
+     * @author: Di
+     * @params: none
+     * @return: Save data to database
      */
     function add()
     {
-        
         //load thư viện validate dữ liệu
         $this->load->library('form_validation');
         $this->load->helper('form');
@@ -82,14 +89,17 @@ Class Slide extends MY_Controller
             }
         }
         
-        
         //load view
         $this->data['temp'] = 'admin/slide/add';
         $this->load->view('admin/main', $this->data);
     }
     
-    /*
-     * Chinh sua slide
+    /**
+     * Description: Cập nhật thông tin của Slide
+     * Function: edit()
+     * @author: Di
+     * @params: none
+     * @return: Update new data
      */
     function edit()
     {
@@ -151,15 +161,17 @@ Class Slide extends MY_Controller
                 redirect(admin_url('slide'));
             }
         }
-        
-        
         //load view
         $this->data['temp'] = 'admin/slide/edit';
         $this->load->view('admin/main', $this->data);
     }
     
-    /*
-     * Xoa du lieu
+    /**
+     * Description: Xóa dữ liệu
+     * Function: del()
+     * @author: Di
+     * @params: none
+     * @return: Remove record
      */
     function del()
     {
@@ -171,8 +183,12 @@ Class Slide extends MY_Controller
         redirect(admin_url('slide'));
     }
     
-    /*
-     * Xóa nhiều slide
+    /**
+     * Description: Xóa nhiều slide
+     * Function: delete_all()
+     * @author: Di
+     * @params: none
+     * @return: Remove multi data
      */
     function delete_all()
     {
@@ -183,9 +199,12 @@ Class Slide extends MY_Controller
             $this->_del($id);
         }
     }
-    
-    /*
-     *Xoa slide
+    /**
+     * Description: Kiểm tra hình trong folder có thì xóa
+     * Function: _del()
+     * @author: Di
+     * @params: $id
+     * @return: Remove image
      */
     private function _del($id)
     {
@@ -207,6 +226,3 @@ Class Slide extends MY_Controller
         
     }
 }
-
-
-

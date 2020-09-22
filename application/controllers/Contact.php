@@ -16,10 +16,13 @@ class Contact extends MY_Controller
    	  $this->load->model('contact_model');
    	  
    }
-   
-   /*
-    * Trang dang ky thanh vien
-    */
+   /**
+     * Description: Gởi thông tin liên hệ
+     * Function: index()
+     * @author: Di
+     * @params: none
+     * @return: none
+     */
    public function index()
    { 
    	 

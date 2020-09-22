@@ -8,21 +8,25 @@ Class Storeaddress extends MY_Controller
         $this->load->model('Storeaddress_model');
     }
     
-    /*
-     * Hien thi danh sach bài viết
+    /**
+     * Description: Lấy danh sách chi nhánh
+     * Function: index()
+     * @author: Di
+     * @params: none
+     * @return: List Store address
      */
     function index()
     {
-        //lay tong so luong ta ca cac bai vai trong websit
+        //lay tong so luong ta ca cac bai vai trong website
         $total_rows = $this->Storeaddress_model->get_total();
         $this->data['total_rows'] = $total_rows;
         
         //load ra thu vien phan trang
         $this->load->library('pagination');
         $config = array();
-        $config['total_rows'] = $total_rows;//tong tat ca cac bài viết tren website
-        $config['base_url']   = admin_url('storeaddress/index'); //link hien thi ra danh sach bài viết
-        $config['per_page']   = 5;//so luong bài viết hien thi tren 1 trang
+        $config['total_rows'] = $total_rows;//tong tat ca cac dư liệu tren website
+        $config['base_url']   = admin_url('storeaddress/index'); //link hien thi ra danh sach dư liệu
+        $config['per_page']   = 5;//so luong dư liệu hien thi tren 1 trang
         $config['uri_segment'] = 4;//phan doan hien thi ra so trang tren url
         $config['next_link']   = 'Trang kế tiếp';
         $config['prev_link']   = 'Trang trước';
@@ -62,12 +66,15 @@ Class Storeaddress extends MY_Controller
         $this->load->view('admin/main', $this->data);
     }
     
-    /*
-     * Them bai viet moi
+    /**
+     * Description: Thêm chi nhánh mới
+     * Function: add()
+     * @author: Di
+     * @params: none
+     * @return: Save data
      */
     function add()
     {
-        
         //load thư viện validate dữ liệu
         $this->load->library('form_validation');
         $this->load->helper('form');
@@ -99,15 +106,16 @@ Class Storeaddress extends MY_Controller
                 redirect(admin_url('storeaddress'));
             }
         }
-        
-        
         //load view
         $this->data['temp'] = 'admin/storeaddress/add';
         $this->load->view('admin/main', $this->data);
     }
-    
-    /*
-     * Chinh sua bài viết
+    /**
+     * Description: Cập nhật thông tin
+     * Function: edit()
+     * @author: Di
+     * @params: none
+     * @return: Update new data
      */
     function edit()
     {
@@ -116,7 +124,7 @@ Class Storeaddress extends MY_Controller
         if(!$StoreAddress)
         {
             //tạo ra nội dung thông báo
-            $this->session->set_flashdata('message', 'Không tồn tại bài viết này');
+            $this->session->set_flashdata('message', 'Không tồn tại dư liệu này');
             redirect(admin_url('storeaddress'));
         }
         $this->data['storeaddress'] = $StoreAddress;
@@ -133,7 +141,6 @@ Class Storeaddress extends MY_Controller
             //nhập liệu chính xác
             if($this->form_validation->run())
             {
-               
                  //luu du lieu can them
                 $data = array(
                     'phone'      => $this->input->post('phone'),
@@ -155,14 +162,17 @@ Class Storeaddress extends MY_Controller
             }
         }
         
-        
         //load view
         $this->data['temp'] = 'admin/storeaddress/edit';
         $this->load->view('admin/main', $this->data);
     }
     
-    /*
-     * Xoa du lieu
+   /**
+     * Description: Xóa thông tin
+     * Function: del()
+     * @author: Di
+     * @params: none
+     * @return: remove data
      */
     function del()
     {
@@ -170,12 +180,16 @@ Class Storeaddress extends MY_Controller
         $this->_del($id);
         
         //tạo ra nội dung thông báo
-        $this->session->set_flashdata('message', 'Xóa bài viết thành công');
+        $this->session->set_flashdata('message', 'Xóa dư liệu thành công');
         redirect(admin_url('storeaddress'));
     }
     
-    /*
-     * Xóa nhiều bài viết
+    /**
+     * Description: Xóa nhiêu dữ liệu
+     * Function: delete_all()
+     * @author: Di
+     * @params: none
+     * @return: Remove muti data
      */
     function delete_all()
     {
@@ -186,9 +200,12 @@ Class Storeaddress extends MY_Controller
             $this->_del($id);
         }
     }
-    
-    /*
-     *Xoa bài viết
+    /**
+     * Description: Kiểm tra tồn tại
+     * Function: edit()
+     * @author: Di
+     * @params: $id
+     * @return: delete record
      */
     private function _del($id)
     {
@@ -196,14 +213,10 @@ Class Storeaddress extends MY_Controller
         if(!$StoreAddress)
         {
             //tạo ra nội dung thông báo
-            $this->session->set_flashdata('message', 'không tồn tại bài viết này');
+            $this->session->set_flashdata('message', 'không tồn tại dư liệu này');
             redirect(admin_url('storeaddress'));
         }
-        //thuc hien xoa bài viết
+        //thuc hien xoa dư liệu
         $this->Storeaddress_model->delete($id);
-        
     }
 }
-
-
-

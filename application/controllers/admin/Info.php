@@ -8,8 +8,12 @@ Class Info extends MY_Controller
         $this->load->model('info_model');
     }
     
-    /*
-     * Hien thi danh sach bài viết
+    /**
+     * Description: Hiển thị dữ liệu (Giới thiệu, Hướng dẫn mua hàng)
+     * Function: index()
+     * @author: Di
+     * @params: none
+     * @return: get list info
      */
     function index()
     {
@@ -57,8 +61,12 @@ Class Info extends MY_Controller
         $this->load->view('admin/main', $this->data);
     }
     
-    /*
-     * Chinh sua nội dung
+    /**
+     * Description: Cập nhật dữ liệu
+     * Function: edit()
+     * @author: Di
+     * @params: none
+     * @return: save new data to database
      */
     function edit()
     {
@@ -107,15 +115,8 @@ Class Info extends MY_Controller
                 redirect(admin_url('info'));
             }
         }
-        
-        
         //load view
         $this->data['temp'] = 'admin/info/edit';
         $this->load->view('admin/main', $this->data);
     }
-    
-  
 }
-
-
-

@@ -13,9 +13,12 @@ Class Transaction extends MY_Controller
         $this->lang->load('admin/common');
         
     }
-    
-    /*
-     * Hien thi danh sach giao dịch
+    /**
+     * Description: Lấy danh sách giao dịch
+     * Function: index()
+     * @author: Di
+     * @params: none
+     * @return: List transaction
      */
     function index()
     {
@@ -104,9 +107,12 @@ Class Transaction extends MY_Controller
         $this->data['temp'] = 'admin/transaction/index';
         $this->load->view('admin/main', $this->data);
     }
-    
-    /*
-     * Xuất dữ liệu ra file excel
+    /**
+     * Description: Xuất dữ liệu ra excel
+     * Function: export()
+     * @author: Di
+     * @params: none
+     * @return: export CSV file
      */
     public function export()
     {
@@ -135,13 +141,12 @@ Class Transaction extends MY_Controller
         $this->load->view('admin/transaction/export', $this->data);
     }
     
-    /*
-     * ------------------------------------------------------
-     *  Action handle
-     * ------------------------------------------------------
-     */
     /**
-     * Xem chi tiet giao dich
+     * Description: Xem chi tiết giao dịch
+     * Function: view()
+     * @author: Di
+     * @params: none
+     * @return: View detail transaction
      */
     function view()
     {
@@ -216,7 +221,11 @@ Class Transaction extends MY_Controller
     }
     
     /**
-     * Xac nhan giao dich
+     * Description: Xác nhận thông tin giao dịch
+     * Function: active()
+     * @author: Di
+     * @params: none
+     * @return: Check active or not
      */
     function active()
     {
@@ -251,7 +260,11 @@ Class Transaction extends MY_Controller
     }
     
     /**
-     * Huy bo giao dich
+     * Description: Hủy bỏ giao dịch
+     * Function: cancel()
+     * @author: Di
+     * @params: none
+     * @return: update status transaction
      */
     function cancel()
     {
@@ -280,8 +293,12 @@ Class Transaction extends MY_Controller
         redirect(admin_url('order'));
     }
     
-    /*
-     * Xoa du lieu
+    /**
+     * Description: Xóa giao dịch
+     * Function: del()
+     * @author: Di
+     * @params: none
+     * @return: none
      */
     function del()
     {
@@ -293,8 +310,12 @@ Class Transaction extends MY_Controller
         redirect(admin_url('transaction'));
     }
     
-    /*
-     * Xóa nhiều sản phẩm
+    /**
+     * Description: Xóa nhiều giao dịch
+     * Function: delete_all()
+     * @author: Di
+     * @params: none
+     * @return: remove multi transaction
      */
     function delete_all()
     {
@@ -305,8 +326,12 @@ Class Transaction extends MY_Controller
         }
     }
     
-    /*
-     *Xoa san pham
+    /**
+     * Description: Kiểm tra có tồn tại giao dịch đó hay không
+     * Function: _del()
+     * @author: Di
+     * @params: none
+     * @return: remove record
      */
     private function _del($id)
     {

@@ -7,8 +7,12 @@ Class Catalog extends MY_Controller
         $this->load->model('catalog_model');
     }
     
-    /*
-     * Lay ra danh sach danh muc san pham
+    /**
+     * Description: Lấy danh sách danh mục
+     * Function: index()
+     * @author: Di
+     * @params: none
+     * @return: list of catalog
      */
     function index()
     {
@@ -24,15 +28,19 @@ Class Catalog extends MY_Controller
         $this->load->view('admin/main', $this->data);
     }
     
-    /*
-     * Them moi du lieu
+    /**
+     * Description: Thêm mới dữ liệu
+     * Function: add()
+     * @author: Di
+     * @params: none
+     * @return: save array data to database
      */
     function add()
     {
 		$config = array(
             'field' => 'slug',
             'name'  => 'name',
-            'table' => 'product',
+            'table' => 'catalog',
         );
         //load thư viện validate dữ liệu
         $this->load->library('form_validation');
@@ -47,6 +55,15 @@ Class Catalog extends MY_Controller
             //nhập liệu chính xác
             if($this->form_validation->run())
             {
+                //lay ten file anh minh hoa duoc update len
+                $this->load->library('upload_library');
+                $upload_path = './upload/catalog';
+                $upload_data = $this->upload_library->upload($upload_path, 'image');  
+                $image_link = '';
+                if(isset($upload_data['file_name']))
+                {
+                    $image_link = $upload_data['file_name'];
+                }
                 //them vao csdl
                 $name       = $this->input->post('name');
                 $parent_id  = $this->input->post('parent_id');
@@ -56,6 +73,7 @@ Class Catalog extends MY_Controller
                 $data = array(
                     'name'      => $name,
                     'parent_id' => $parent_id,
+                    'image_link' => $image_link,
                     'sort_order' => intval($sort_order)
                 );
 				$data['slug'] = $this->slug_library->create_uri($name);
@@ -82,15 +100,19 @@ Class Catalog extends MY_Controller
         $this->load->view('admin/main', $this->data);
     }
     
-    /*
-     * Cập nhật du lieu
+    /**
+     * Description: Cập nhật dữ liệu
+     * Function: add()
+     * @author: Di
+     * @params: none
+     * @return: save new data to database
      */
     function edit()
     {
 		$config = array(
             'field' => 'slug',
             'name'  => 'name',
-            'table' => 'product',
+            'table' => 'catalog',
         );
         //load thư viện validate dữ liệu
         $this->load->library('form_validation');
@@ -116,6 +138,15 @@ Class Catalog extends MY_Controller
             //nhập liệu chính xác
             if($this->form_validation->run())
             {
+                //lay ten file anh minh hoa duoc update len
+                $this->load->library('upload_library');
+                $upload_path = './upload/catalog';
+                $upload_data = $this->upload_library->upload($upload_path, 'image');
+                $image_link = '';
+                if(isset($upload_data['file_name']))
+                {
+                    $image_link = $upload_data['file_name'];
+                }
                 //them vao csdl
                 $name       = $this->input->post('name');
                 $parent_id  = $this->input->post('parent_id');
@@ -127,6 +158,10 @@ Class Catalog extends MY_Controller
                     'parent_id' => $parent_id,
                     'sort_order' => intval($sort_order)
                 );
+                if($image_link != '')
+                {
+                    $data['image_link'] = $image_link;
+                }
 				$data['slug'] = $this->slug_library->create_uri($name);
                 //them moi vao csdl
                 if($this->catalog_model->update($id, $data))
@@ -151,8 +186,12 @@ Class Catalog extends MY_Controller
         $this->load->view('admin/main', $this->data);
     }
     
-    /*
-     * Xoa danh mục
+    /**
+     * Description: Xóa danh mục
+     * Function: delete()
+     * @author: Di
+     * @params: none
+     * @return: remove record to database
      */
     function delete()
     {
@@ -165,8 +204,12 @@ Class Catalog extends MY_Controller
         redirect(admin_url('catalog'));
     }
     
-    /*
-     * Xoa nhieu danh muc san pham
+    /**
+     * Description: Xóa nhiều danh mục
+     * Function: delete_all()
+     * @author: Di
+     * @params: none
+     * @return: Remove multi record to database
      */
     function delete_all()
     {
@@ -177,8 +220,12 @@ Class Catalog extends MY_Controller
         }
     }
     
-    /*
-     * Thuc hien xoa
+    /**
+     * Description: Kiểm tra danh mục này có sản phẩm hay không có thì không nên xóa
+     * Function: _del()
+     * @author: Di
+     * @params: $id and $redirect
+     * @return: true or false
      */
     private function _del($id, $rediect = true)
     {

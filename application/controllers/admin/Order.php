@@ -17,16 +17,13 @@ class Order extends MY_Controller {
 		$this->lang->load('admin/common');
 	}
 	
-    
-	
-/*
- * ------------------------------------------------------
- *  List handle
- * ------------------------------------------------------
- */
-	/**
-	 * Danh sach
-	 */
+    /**
+     * Description: Lấy danh sách tất cả các đơn hàng
+     * Function: index()
+     * @author: Di
+     * @params: none
+     * @return: get list order
+     */
 	function index()
 	{
 		//tao input dieu kien
@@ -144,8 +141,12 @@ class Order extends MY_Controller {
 	}
 	
 	/**
-	 * Export du lieu ra file excel = cach don gian nhat
-	 */
+     * Description: Export ra file excel kiểu cổ điển :)
+     * Function: export()
+     * @author: Di
+     * @params: none
+     * @return: Export file CSV
+     */
 	function export()
 	{
 	    //lay toan bo giao dịch

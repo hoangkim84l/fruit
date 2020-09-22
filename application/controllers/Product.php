@@ -7,9 +7,12 @@ Class Product extends MY_Controller
         //load model san pham
         $this->load->model('product_model');
     }
-
-    /*
-     * Trang dang danh sách sản phẩm
+    /**
+     * Description: Lấy danh sách sản phẩm theo điều kiện
+     * Function: index()
+     * @author: Di
+     * @params: none
+     * @return: list products
      */
     public function index()
     {
@@ -45,9 +48,12 @@ Class Product extends MY_Controller
         $this->data['temp'] = 'site/product/index';
         $this->load->view('site/layout', $this->data);
     }
-    
-    /*
-     * Hiển thị danh sách sản phẩm theo danh mục
+    /**
+     * Description: Hiển thị sản phẩm theo danh mục
+     * Function: catalog()
+     * @author: Di
+     * @params: none
+     * @return: List product by catalog
      */
     function catalog()
     {
@@ -120,9 +126,12 @@ Class Product extends MY_Controller
         $this->data['temp'] = 'site/product/catalog';
         $this->load->view('site/layout', $this->data);
     }
-    
-    /*
-     * Xem chi tiết sản phẩm
+    /**
+     * Description: Xem sản phẩm
+     * Function: view()
+     * @author: Di
+     * @params: none
+     * @return: đếm lượt xem, đánh giá sản phẩm, xem chi tiết sản phẩm
      */
     function view()
     {
@@ -152,9 +161,12 @@ Class Product extends MY_Controller
         $this->data['temp'] = 'site/product/view';
         $this->load->view('site/layout', $this->data);
     }
-    
-    /*
-     * Tim kiem theo ten san pham
+    /**
+     * Description: Tìm theo tên sản phẩm
+     * Function: search()
+     * @author: Di
+     * @params: none
+     * @return: list product by key search
      */
     function search()
     {
@@ -193,9 +205,12 @@ Class Product extends MY_Controller
             $this->load->view('site/layout', $this->data);
         }
     }
-    
-    /*
-     * Tim kiem theo gia san pham
+    /**
+     * Description: Tìm sản phẩm theo giá
+     * Function: search_price()
+     * @author: Di
+     * @params: none
+     * @return: List product by range price
      */
     function search_price()
     {
@@ -214,9 +229,12 @@ Class Product extends MY_Controller
         $this->data['temp'] = 'site/product/search_price';
         $this->load->view('site/layout', $this->data);
     }
-    
     /**
-     * Danh gia sản phẩm
+     * Description: Đánh giá sản phẩm từ 1 đến 5 sao
+     * Function: block()
+     * @author: Di
+     * @params: none
+     * @return: none
      */
     function raty()
     {
@@ -262,6 +280,3 @@ Class Product extends MY_Controller
         exit();
     }
 }
-
-
-

@@ -5,9 +5,12 @@ Class Order extends MY_Controller
     {
         parent::__construct();
     }
-    
-    /*
-     * Lấy thông tin của khách hàng
+    /**
+     * Description: Lấy thông tin của khách hàng
+     * Function: checkout()
+     * @author: Di
+     * @params: none
+     * @return: none
      */
     function checkout()
     {
@@ -108,9 +111,12 @@ Class Order extends MY_Controller
         $this->data['temp'] = 'site/order/checkout';
         $this->load->view('site/layout', $this->data);
     }
-    
-    /*
-     * Nhan ket qua tra ve tu cong thanh toan
+    /**
+     * Description: Nhận kết quả trả về từ cổng thanh toán (thanh toán online)
+     * Function: result()
+     * @author: Di
+     * @params: none
+     * @return: status true or false
      */
     function result()
     {
@@ -143,4 +149,3 @@ Class Order extends MY_Controller
         }
     }
 }
-

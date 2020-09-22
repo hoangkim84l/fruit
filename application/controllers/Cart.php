@@ -6,9 +6,12 @@ Class Cart extends MY_Controller
         parent::__construct();
         
     }
-    
-    /*
-     * Phuoc thuc them san pham vao gio hang
+    /**
+     * Description: Thêm sản phẩm vào giỏ hàng
+     * Function: add()
+     * @author: Di
+     * @params: none
+     * @return: add product to cart
      */
     function add()
     {
@@ -40,9 +43,12 @@ Class Cart extends MY_Controller
         //chuyen sang trang danh sach san pham trong gio hang
         redirect(base_url('cart'));
     }
-    
-    /*
-     * Hien thị ra danh sách sản phẩm trong gio hàng
+    /**
+     * Description: Hiển thị sản phẩm trong giỏ hàng
+     * Function: index()
+     * @author: Di
+     * @params: none
+     * @return: Show record in cart
      */
     function index()
     {
@@ -57,9 +63,12 @@ Class Cart extends MY_Controller
         $this->data['temp']  ='site/cart/index';
         $this->load->view('site/layout', $this->data);
     }
-    
-    /*
-     * Cập nhật giỏ hàng
+    /**
+     * Description: Cập nhật giỏ hàng
+     * Function: Update()
+     * @author: Di
+     * @params: none
+     * @return: update quality and price
      */
     function update()
     {
@@ -78,9 +87,12 @@ Class Cart extends MY_Controller
         //chuyen sang trang danh sach san pham trong gio hang
         redirect(base_url('cart'));
     }
-    
-    /*
-     * Xoa sản phẩm trong gio hang
+    /**
+     * Description: Xóa sản phẩm ra khỏi giỏ hàng
+     * Function: del()
+     * @author: Di
+     * @params: none
+     * @return: remove record
      */
     function del()
     {
@@ -111,5 +123,3 @@ Class Cart extends MY_Controller
         redirect(base_url('cart'));
     }
 }
-
-

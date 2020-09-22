@@ -19,8 +19,12 @@ Class Login extends MY_controller{
         $this->load->view('admin/login/index');
     }
     
-    /*
-     * Kiem tra username va password co chinh xac khong
+    /**
+     * Description: Kiểm tra dữ liệu có chín xác hay không
+     * Function: check_login()
+     * @author: Di
+     * @params: none
+     * @return: true or false
      */
     function check_login()
     {

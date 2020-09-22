@@ -8,21 +8,25 @@ Class Connecter extends MY_Controller
         $this->load->model('connecter_model');
     }
     
-    /*
-     * Hiển thị danh sách liên kết
+    /**
+     * Description: Lấy danh sách nhà phân phối,phân trang, va lọc theo id tên
+     * Function: index()
+     * @author: Di
+     * @params: none
+     * @return: get list connector
      */
     function index()
     {
-        //lay tong so luong ta ca cac bai vai trong websit
+        //lay tong so luong ta ca cac bai vai trong website
         $total_rows = $this->connecter_model->get_total();
         $this->data['total_rows'] = $total_rows;
         
         //load ra thu vien phan trang
         $this->load->library('pagination');
         $config = array();
-        $config['total_rows'] = $total_rows;//tong tat ca cac bài viết tren website
-        $config['base_url']   = admin_url('connecter/index'); //link hien thi ra danh sach bài viết
-        $config['per_page']   = 5;//so luong bài viết hien thi tren 1 trang
+        $config['total_rows'] = $total_rows;//tong tat ca nhà phân phối tren website
+        $config['base_url']   = admin_url('connecter/index'); //link hien thi ra danh sach
+        $config['per_page']   = 5;//so luong hien thi tren 1 trang
         $config['uri_segment'] = 4;//phan doan hien thi ra so trang tren url
         $config['next_link']   = 'Trang kế tiếp';
         $config['prev_link']   = 'Trang trước';
@@ -62,8 +66,12 @@ Class Connecter extends MY_Controller
         $this->load->view('admin/main', $this->data);
     }
     
-    /*
-     * Them bai viet moi
+    /**
+     * Description: Thêm mới dữ liệu
+     * Function: add()
+     * @author: Di
+     * @params: none
+     * @return: save data to database
      */
     function add()
     {
@@ -119,8 +127,12 @@ Class Connecter extends MY_Controller
         $this->load->view('admin/main', $this->data);
     }
     
-    /*
-     * Chinh sua bài viết
+    /**
+     * Description: Cập nhật dữ liệu
+     * Function: edit()
+     * @author: Di
+     * @params: none
+     * @return: save new data to database
      */
     function edit()
     {
@@ -190,8 +202,12 @@ Class Connecter extends MY_Controller
         $this->load->view('admin/main', $this->data);
     }
     
-    /*
-     * Xoa du lieu
+    /**
+     * Description: Xóa dữ liệu
+     * Function: del()
+     * @author: Di
+     * @params: none
+     * @return: remove record to database
      */
     function del()
     {
@@ -203,8 +219,12 @@ Class Connecter extends MY_Controller
         redirect(admin_url('connecter'));
     }
     
-    /*
-     * Xóa nhiều bài viết
+    /**
+     * Description: Xóa nhieu2 dữ liệu dữ liệu
+     * Function: delete_all()
+     * @author: Di
+     * @params: none
+     * @return: remove multi data to database
      */
     function delete_all()
     {
@@ -216,8 +236,12 @@ Class Connecter extends MY_Controller
         }
     }
     
-    /*
-     *Xoa bài viết
+    /**
+     * Description: kiểm tra nhà phân phối này có ảnh đại điện không co thì xóa
+     * Function: _del()
+     * @author: Di
+     * @params: $id
+     * @return: remove image
      */
     private function _del($id)
     {
@@ -239,6 +263,3 @@ Class Connecter extends MY_Controller
         
     }
 }
-
-
-

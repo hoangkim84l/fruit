@@ -7,8 +7,12 @@ Class Admin extends MY_Controller
         $this->load->model('admin_model');
     }
     
-    /*
-     * Lay danh sach admin
+    /**
+     * Description:Lấy danh sách admin
+     * Function: index()
+     * @author: Di
+     * @params: none
+     * @return: list of admin
      */
     function index()
     {
@@ -27,8 +31,12 @@ Class Admin extends MY_Controller
         $this->load->view('admin/main', $this->data);
     }
     
-    /*
-     * Kiểm tra username đã tồn tại chưa
+    /**
+     * Description: Kiểm tra username đã có ahay chưa
+     * Function: check_username()
+     * @author: Di
+     * @params: none
+     * @return: true or false
      */
     function check_username()
     {
@@ -44,8 +52,12 @@ Class Admin extends MY_Controller
         return true;
     }
     
-    /*
-     * Thêm mới quản trị viên
+   /**
+     * Description: Thêm quản trị viên mới
+     * Function: add()
+     * @author: Di
+     * @params: none
+     * @return: save array data to database
      */
     function add()
     {
@@ -89,8 +101,12 @@ Class Admin extends MY_Controller
         $this->load->view('admin/main', $this->data);
     }
     
-    /*
-     * Ham chinh sua thong tin quan tri vien
+    /**
+     * Description: Chỉnh sửa thông tin quản trị
+     * Function: edit()
+     * @author: Di
+     * @params: none
+     * @return: Save info to databse
      */
     function edit()
     {
@@ -153,8 +169,12 @@ Class Admin extends MY_Controller
         $this->load->view('admin/main', $this->data);
     }
     
-    /*
-     * Hàm xóa dữ liệu
+    /**
+     * Description: Xóa admin
+     * Function: delete()
+     * @author: Di
+     * @params: none
+     * @return: Remove record to database
      */
     function delete()
     {
@@ -174,8 +194,12 @@ Class Admin extends MY_Controller
         redirect(admin_url('admin'));
     }
     
-    /*
-     * Thuc hien dang xuat
+   /**
+     * Description: Admin đăng xuất
+     * Function: logout()
+     * @author: Di
+     * @params: none
+     * @return: Xóa session và đưa admin về trang đăng nhập
      */
     function logout()
     {
