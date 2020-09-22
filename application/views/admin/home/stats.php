@@ -10,23 +10,23 @@
 		<table cellpadding="0" cellspacing="0" width="100%" class="sTable myTable">
 			<tbody>
 				
-					<tr>
-							<td class="fontB blue f13"><?php echo lang("notice_stats_amount_total"); ?></td>
-							<td class="textR webStatsLink red" style="width:120px;"><?php echo number_format($amount_total)?> đ</td>
-					</tr>
-				    
-				    <tr>
-							<td class="fontB blue f13">Doanh số hôm nay</td>
-							<td class="textR webStatsLink red" style="width:120px;"><?php echo number_format($amount_to_day)?> đ</td>
-					</tr>
-					
-				    <tr>
-							<td class="fontB blue f13">Doanh số theo tháng</td>
-							<td class="textR webStatsLink red" style="width:120px;">
-							<?php echo number_format($tongtien_thang)?> đ
-							</td>
-					</tr>
-				    
+				<tr>
+					<td class="fontB blue f13"><?php echo lang("notice_stats_amount_total"); ?></td>
+					<td class="textR webStatsLink red" style="width:120px;"><?php echo number_format($amount_total)?> đ</td>
+				</tr>
+				
+				<tr>
+					<td class="fontB blue f13">Doanh số hôm nay</td>
+					<td class="textR webStatsLink red" style="width:120px;"><?php echo number_format($amount_to_day)?> đ</td>
+				</tr>
+				
+				<tr>
+					<td class="fontB blue f13">Doanh số theo tháng</td>
+					<td class="textR webStatsLink red" style="width:120px;">
+						<?php echo number_format($tongtien_thang)?> đ
+					</td>
+				</tr>
+				
 			</tbody>
 		</table>
 	</div>

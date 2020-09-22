@@ -67,11 +67,16 @@ Class News extends MY_Controller
      */
     function add()
     {
-        
+        $config = array(
+            'field' => 'slug',
+            'name'  => 'title',
+            'table' => 'news',
+        );
         //load thư viện validate dữ liệu
         $this->load->library('form_validation');
         $this->load->helper('form');
-        
+        $this->load->library('slug_library',$config);
+		
         //neu ma co du lieu post len thi kiem tra
         if($this->input->post())
         {
@@ -91,7 +96,7 @@ Class News extends MY_Controller
                 {
                     $image_link = $upload_data['file_name'];
                 }
-               
+				$name = $this->input->post('title');
                 //luu du lieu can them
                 $data = array(
                     'title'      => $this->input->post('title'),
@@ -101,6 +106,7 @@ Class News extends MY_Controller
                     'content'    => $this->input->post('content'),
                     'created'    => now(),
                 ); 
+				$data['slug'] = $this->slug_library->create_uri($name);
                 //them moi vao csdl
                 if($this->news_model->create($data))
                 {
@@ -125,6 +131,11 @@ Class News extends MY_Controller
      */
     function edit()
     {
+		$config = array(
+            'field' => 'slug',
+            'name'  => 'title',
+            'table' => 'news',
+        );
         $id = $this->uri->rsegment('3');
         $news = $this->news_model->get_info($id);
         if(!$news)
@@ -139,7 +150,7 @@ Class News extends MY_Controller
         //load thư viện validate dữ liệu
         $this->load->library('form_validation');
         $this->load->helper('form');
-        
+        $this->load->library('slug_library',$config);
         //neu ma co du lieu post len thi kiem tra
         if($this->input->post())
         {
@@ -159,7 +170,7 @@ Class News extends MY_Controller
                 {
                     $image_link = $upload_data['file_name'];
                 }
-            
+				$name = $this->input->post('title');
                  //luu du lieu can them
                 $data = array(
                     'title'      => $this->input->post('title'),
@@ -172,7 +183,7 @@ Class News extends MY_Controller
                 {
                     $data['image_link'] = $image_link;
                 }
-               
+				$data['slug'] = $this->slug_library->create_uri($name);
                 //them moi vao csdl
                 if($this->news_model->update($news->id, $data))
                 {

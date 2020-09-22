@@ -2,16 +2,12 @@
 <div class="titleArea">
 	<div class="wrapper">
 		<div class="pageTitle">
-			<h5><?php echo lang('mod_support'); ?></h5>
+			<h5><?php echo lang('mod_support_tag'); ?></h5>
 			<span><?php echo lang('support_info'); ?></span>
 		</div>
 		
 		<div class="horControlB menu_action">
 			<ul>
-				<li><a href="<?php echo admin_url('support/add'); ?>">
-					<img src="<?php echo public_url('admin'); ?>/images/icons/control/16/add.png" />
-					<span><?php echo lang('add'); ?></span>
-				</a></li>
 				
 				<li><a href="<?php echo admin_url('support'); ?>">
 					<img src="<?php echo public_url('admin'); ?>/images/icons/control/16/list.png" />

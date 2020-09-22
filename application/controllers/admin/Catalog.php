@@ -29,9 +29,15 @@ Class Catalog extends MY_Controller
      */
     function add()
     {
+		$config = array(
+            'field' => 'slug',
+            'name'  => 'name',
+            'table' => 'product',
+        );
         //load thư viện validate dữ liệu
         $this->load->library('form_validation');
         $this->load->helper('form');
+		$this->load->library('slug_library',$config);
         
         //neu ma co du lieu post len thi kiem tra
         if($this->input->post())
@@ -52,6 +58,7 @@ Class Catalog extends MY_Controller
                     'parent_id' => $parent_id,
                     'sort_order' => intval($sort_order)
                 );
+				$data['slug'] = $this->slug_library->create_uri($name);
                 //them moi vao csdl
                 if($this->catalog_model->create($data))
                 {
@@ -80,9 +87,15 @@ Class Catalog extends MY_Controller
      */
     function edit()
     {
+		$config = array(
+            'field' => 'slug',
+            'name'  => 'name',
+            'table' => 'product',
+        );
         //load thư viện validate dữ liệu
         $this->load->library('form_validation');
         $this->load->helper('form');
+		$this->load->library('slug_library',$config);
     
         //lay id danh mục
         $id = $this->uri->rsegment(3);
@@ -114,6 +127,7 @@ Class Catalog extends MY_Controller
                     'parent_id' => $parent_id,
                     'sort_order' => intval($sort_order)
                 );
+				$data['slug'] = $this->slug_library->create_uri($name);
                 //them moi vao csdl
                 if($this->catalog_model->update($id, $data))
                 {

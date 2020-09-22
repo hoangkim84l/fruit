@@ -74,13 +74,13 @@ Class Upload_library
         //thuc mục chứa file
         $config['upload_path']   = $upload_path;
         //Định dạng file được phép tải
-        $config['allowed_types'] = 'jpg|png|gif';
+        $config['allowed_types'] = 'jpg|png|gif|jpeg|PNG|JPG';
         //Dung lượng tối đa
-        $config['max_size']      = '1200';
+        $config['max_size']      = '99000';
         //Chiều rộng tối đa
-        $config['max_width']     = '1028';
+        $config['max_width']     = '2468';
         //Chiều cao tối đa
-        $config['max_height']    = '1028';
+        $config['max_height']    = '2468';
         
         return $config;
     }

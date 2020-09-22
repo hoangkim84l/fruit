@@ -4,7 +4,7 @@
 <!-- Main content wrapper -->
 <div class="wrapper">
 
-   	<!-- Form -->
+	<!-- Form -->
 	<form class="form" id="form" action="<?php echo $action; ?>" method="post">
 		<fieldset>
 			<div class="widget">
@@ -34,11 +34,11 @@
 				</div>
 				
 				<div class="formRow">
-					<label class="formLeft" for="param_yahoo"><?php echo lang('yahoo'); ?>:</label>
+					<label class="formLeft" for="param_hotline">Hotline:</label>
 					<div class="formRight">
-						<span class="oneTwo"><input name="yahoo" id="param_yahoo" value="" type="text" /></span>
+						<span class="oneTwo"><input name="hotline" id="param_hotline" value="" type="text" /></span>
 						<span name="yahoo_autocheck" class="autocheck"></span>
-						<div name="yahoo_error" class="clear error"><?php echo form_error('yahoo')?></div>
+						<div name="yahoo_error" class="clear error"><?php echo form_error('hotline')?></div>
 					</div>
 					<div class="clear"></div>
 				</div>
@@ -64,6 +64,58 @@
 				</div>
 				
 				<div class="formRow">
+					<label class="formLeft" for="param_site_title">Tiều đề trang web:</label>
+					<div class="formRight">
+						<span class="oneTwo"><input name="site_title" id="param_site_title" value="" type="text"/></span>
+						<span name="skype_autocheck" class="autocheck"></span>
+					</div>
+					<div class="clear"></div>
+				</div>
+				<div class="formRow">
+					<label class="formLeft" for="param_site_key">Từ khóa:</label>
+					<div class="formRight">
+						<span class="oneTwo"><input name="site_key" id="param_site_key" value="" type="text"/></span>
+						<span name="skype_autocheck" class="autocheck"></span>
+					</div>
+					<div class="clear"></div>
+				</div>
+				<div class="formRow">
+					<label class="formLeft" for="param_site_desc">Mô tả trang:</label>
+					<div class="formRight">
+						<span class="oneTwo"><input name="site_desc" id="param_site_desc" value="" type="text"/></span>
+						<span name="skype_autocheck" class="autocheck"></span>
+					</div>
+					<div class="clear"></div>
+				</div>
+				<div class="formRow">
+					<label class="formLeft">Logo:</label>
+					<div class="formRight">
+						<div class="left">
+							<input type="file" name="logo" id="logo" size="25">
+							<img src="<?php echo base_url('upload/logo/'.$info->logo)?>" style="width:100px;height:70px">
+						</div>
+					</div>
+					<div class="clear"></div>
+				</div>
+				<div class="formRow">
+					<label for="param_site_title" class="formLeft">Chat zalo:</label>
+					<div class="formRight">
+						<span class="oneTwo"><textarea cols="" rows="4" _autocheck="true" id="param_zalo" name="zalo"><?php echo $info->zalo?></textarea></span>
+						<span class="autocheck" name="site_title_autocheck"></span>
+					</div>
+					<div class="clear"></div>
+				</div>
+				<div class="formRow">
+					<label for="param_site_title" class="formLeft">Chat facebook:</label>
+					<div class="formRight">
+						<span class="oneTwo"><textarea cols="" rows="4" _autocheck="true" id="param_facebook" name="facebook"><?php echo $info->facebook?></textarea></span>
+						<span class="autocheck" name="site_title_autocheck"></span>
+						<div class="clear error" name="site_title_error"></div>
+					</div>
+					<div class="clear"></div>
+				</div>	
+				
+				<div class="formRow">
 					<label class="formLeft" for="param_sort_order"><?php echo lang('sort_order'); ?>:</label>
 					<div class="formRight">
 						<input name="sort_order" id="param_sort_order"  class="left" style="width:100px;" type="text" />
@@ -73,12 +125,12 @@
 					<div class="clear"></div>
 				</div>
 				
-           		<div class="formSubmit">
-           			<input type="submit" value="<?php echo lang('button_add'); ?>" class="redB" />
-           			<input type="reset" value="<?php echo lang('button_reset'); ?>" class="basic" />
-           		</div>
-        		<div class="clear"></div>
-        		
+				<div class="formSubmit">
+					<input type="submit" value="<?php echo lang('button_add'); ?>" class="redB" />
+					<input type="reset" value="<?php echo lang('button_reset'); ?>" class="basic" />
+				</div>
+				<div class="clear"></div>
+				
 			</div>
 		</fieldset>
 	</form>
